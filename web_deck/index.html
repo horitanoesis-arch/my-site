@@ -10,8 +10,10 @@
       rel="stylesheet"
     />
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -28,6 +30,15 @@
   </head>
   <body>
     <canvas id="bg-canvas"></canvas>
+
+    <!-- Noise Texture -->
+    <div
+      class="absolute top-0 left-0 w-full h-full z-0 opacity-[0.07] pointer-events-none"
+      style="
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        position: fixed;
+      "
+    ></div>
 
     <div id="deck" class="deck-container">
       <div id="slides-wrapper" tabindex="0">
@@ -178,7 +189,7 @@
               <!-- コンテンツラッパー -->
               <div class="relative z-10 w-full h-full flex flex-col">
                 <!-- ヘッダー -->
-                <div class="w-full pt-8 px-16 mb-2">
+                <div class="w-full pt-4 px-16 mb-1">
                   <div class="flex items-center">
                     <div
                       class="w-2 h-12 bg-purple-600 mr-4 rounded-full shadow-md"
@@ -198,10 +209,12 @@
                 </div>
 
                 <!-- コンテンツエリア -->
-                <div class="flex-1 px-16 py-2 flex flex-col justify-center">
-                  <div class="grid grid-cols-2 gap-x-12 gap-y-5">
+                <div
+                  class="flex-1 px-16 py-2 flex flex-col justify-center pb-8"
+                >
+                  <div class="grid grid-cols-2 gap-x-12 gap-y-3">
                     <!-- 左カラム -->
-                    <div class="space-y-5">
+                    <div class="space-y-3">
                       <!-- Item 1 -->
                       <div
                         class="fragment fade-up flex items-center bg-white p-4 rounded-xl card-shadow border-l-8 border-pink-400 transform transition-transform hover:scale-102"
@@ -249,7 +262,7 @@
                     </div>
 
                     <!-- 右カラム -->
-                    <div class="space-y-5">
+                    <div class="space-y-3">
                       <!-- Item 4 -->
                       <div
                         class="fragment fade-up flex items-center bg-white p-4 rounded-xl card-shadow border-l-8 border-yellow-400 transform transition-transform hover:scale-102"
@@ -298,9 +311,9 @@
                   </div>
 
                   <!-- 最後の強調項目 -->
-                  <div class="fragment fade-up mt-8 mx-auto w-full max-w-5xl">
+                  <div class="fragment fade-up mt-4 mx-auto w-full max-w-5xl">
                     <div
-                      class="bg-indigo-700 rounded-3xl p-8 shadow-2xl flex items-center justify-between relative overflow-hidden border-4 border-yellow-400"
+                      class="bg-indigo-700 rounded-3xl p-6 shadow-2xl flex items-center justify-between relative overflow-hidden border-4 border-yellow-400"
                     >
                       <!-- 装飾背景 -->
                       <div
@@ -311,7 +324,7 @@
                       ></div>
 
                       <div class="flex flex-col z-10 w-full text-center">
-                        <div class="flex items-center justify-center mb-2">
+                        <div class="flex items-center justify-center mb-1">
                           <span
                             class="text-white text-xl font-bold tracking-widest bg-indigo-800 px-4 py-1 rounded-full border border-indigo-400"
                             >NEXT STAGE</span
@@ -320,7 +333,7 @@
 
                         <div class="relative">
                           <p
-                            class="text-7xl font-black text-white tracking-wider leading-tight"
+                            class="text-6xl font-black text-white tracking-wider leading-tight"
                             style="text-shadow: 4px 4px 0px #312e81"
                           >
                             自由の利く人生へ！
@@ -340,7 +353,7 @@
                           </div>
                         </div>
 
-                        <p class="text-indigo-200 mt-3 text-lg font-bold">
+                        <p class="text-indigo-200 mt-2 text-lg font-bold">
                           本当の安定と時間を取り戻すために
                         </p>
                       </div>
@@ -364,21 +377,21 @@
       Interpretation: They want to override default padding.
       I will add p-12 as a safe middle ground, but ensure no extra padding prevents layout.
     -->
-            <div class="w-full h-full relative p-12">
+            <div class="w-full h-full relative p-4">
               <!-- ヘッダー -->
               <div
                 class="flex justify-between items-end mb-2 border-b-2 border-gray-200 pb-2 w-full anim-fade-in"
               >
                 <div>
-                  <h1 class="text-4xl font-black text-gray-800 tracking-tight">
+                  <h1 class="text-4xl font-black text-white tracking-tight">
                     働き方の4つの分類
-                    <span class="text-2xl font-normal text-gray-500 ml-2"
+                    <span class="text-2xl font-normal text-white ml-2"
                       >(ESBIクワドラント)</span
                     >
                   </h1>
                 </div>
                 <div class="text-right">
-                  <p class="text-xl font-bold text-gray-600">
+                  <p class="text-xl font-bold text-white">
                     あなたの収入源はどこですか？
                   </p>
                 </div>
@@ -862,9 +875,9 @@
           <div class="slide-container fallback">
             <div class="slide-container bg-pattern-stripes">
               <!-- ヘッダー -->
-              <div class="absolute top-0 left-0 w-full p-8 z-20">
+              <div class="absolute top-0 left-0 w-full p-6 z-20">
                 <div
-                  class="inline-block bg-white px-6 py-2 rounded-full shadow-sm border border-pink-100 anim-fade"
+                  class="inline-block bg-white/90 backdrop-blur-md px-6 py-2 rounded-full shadow-lg border border-pink-100 anim-fade"
                 >
                   <h1 class="text-xl font-bold text-pink-600 tracking-wider">
                     FUTURE INCOME MODEL
@@ -873,19 +886,19 @@
               </div>
 
               <!-- メインコンテンツ -->
-              <div class="flex w-full h-full pt-16 px-16 pb-12">
+              <div class="flex w-full h-full pt-8 px-16 pb-4">
                 <!-- 左カラム：テキスト -->
-                <div class="w-5/12 flex flex-col justify-center pr-8 z-10">
+                <div class="w-1/2 flex flex-col justify-center pr-8 z-10">
                   <!-- タイトルとロゴ -->
-                  <div class="flex items-start mb-4 anim-slide-up delay-200">
-                    <h2 class="text-6xl font-black text-gray-800 leading-tight">
-                      <span class="text-pink-500">継続</span>する<br />収入へ。
+                  <div class="flex items-start mb-2 anim-slide-up delay-200">
+                    <h2 class="text-5xl font-black text-gray-800 leading-tight">
+                      <span class="text-pink-600">継続</span>する<br />収入へ。
                     </h2>
 
                     <!-- ロゴ画像配置スペース -->
                     <div class="ml-4 mt-2">
                       <div
-                        class="w-48 h-28 flex items-center justify-center relative"
+                        class="w-40 h-24 flex items-center justify-center relative"
                       >
                         <img
                           alt="PRIME CLUB Logo"
@@ -897,15 +910,15 @@
                   </div>
 
                   <div
-                    class="w-24 h-2 bg-yellow-400 mb-8 rounded-full anim-slide-up delay-200"
+                    class="w-24 h-2 bg-yellow-400 mb-6 rounded-full anim-slide-up delay-200"
                   ></div>
 
-                  <div class="space-y-6">
+                  <div class="space-y-4">
                     <div
-                      class="bg-white p-6 rounded-2xl shadow-lg border-l-8 border-pink-500 transform transition hover:scale-105 anim-slide-up delay-500"
+                      class="bg-white p-5 rounded-2xl shadow-lg border-l-8 border-pink-500 transform transition hover:scale-105 anim-slide-up delay-500"
                     >
                       <h3
-                        class="text-2xl font-bold text-gray-700 mb-2 flex items-center"
+                        class="text-2xl font-bold text-gray-800 mb-2 flex items-center"
                       >
                         <i class="fas fa-infinity text-pink-500 mr-3"></i
                         >ロングリターン
@@ -916,10 +929,10 @@
                     </div>
 
                     <div
-                      class="bg-white p-6 rounded-2xl shadow-lg border-l-8 border-yellow-400 transform transition hover:scale-105 anim-slide-up delay-800"
+                      class="bg-white p-5 rounded-2xl shadow-lg border-l-8 border-yellow-400 transform transition hover:scale-105 anim-slide-up delay-800"
                     >
                       <h3
-                        class="text-2xl font-bold text-gray-700 mb-2 flex items-center"
+                        class="text-2xl font-bold text-gray-800 mb-2 flex items-center"
                       >
                         <i class="fas fa-chart-line text-yellow-500 mr-3"></i
                         >資産性の構築
@@ -930,7 +943,7 @@
                     </div>
                   </div>
 
-                  <div class="mt-10 anim-fade delay-1000">
+                  <div class="mt-6 anim-fade delay-1000">
                     <p class="text-xl font-bold text-gray-500">
                       <i class="far fa-clock mr-2"></i>
                       時間が味方になる働き方
@@ -939,59 +952,59 @@
                 </div>
 
                 <!-- 右カラム：ビジュアル & チャート -->
-                <div class="w-7/12 relative flex items-center justify-center">
+                <div class="w-1/2 relative flex items-center justify-center">
                   <!-- 背景装飾 -->
                   <div
                     class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center opacity-10 pointer-events-none"
                   >
-                    <i class="fas fa-clock text-[400px] text-pink-300"></i>
+                    <i class="fas fa-clock text-[350px] text-pink-200"></i>
                   </div>
 
                   <!-- チャートコンテナ -->
                   <div
-                    class="w-full h-[500px] bg-white bg-opacity-90 rounded-3xl shadow-2xl p-6 relative border border-white anim-slide-right delay-500"
+                    class="w-full h-[350px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 relative border border-white anim-slide-right delay-500"
                   >
                     <div
-                      class="absolute -top-6 -right-6 bg-yellow-400 text-white w-24 h-24 rounded-full flex items-center justify-center shadow-lg animate-bounce z-20 border-4 border-white"
+                      class="absolute -top-6 -right-6 bg-yellow-400 text-white w-20 h-20 rounded-full flex items-center justify-center shadow-lg animate-bounce z-20 border-4 border-white"
                     >
                       <div class="text-center leading-tight">
-                        <span class="text-sm font-bold block text-pink-900"
+                        <span class="text-xs font-bold block text-pink-900"
                           >未来が</span
                         >
-                        <span class="text-xl font-black text-pink-900"
+                        <span class="text-lg font-black text-pink-900"
                           >変わる</span
                         >
                       </div>
                     </div>
 
-                    <h3 class="text-center text-gray-500 font-bold mb-4">
+                    <h3 class="text-center text-gray-500 font-bold mb-2">
                       収入の推移イメージ
                     </h3>
 
-                    <div class="relative h-[400px] w-full">
+                    <div class="relative h-[280px] w-full">
                       <canvas id="incomeChart-s05"></canvas>
                     </div>
 
                     <!-- アイコン装飾 -->
                     <div
-                      class="absolute bg-pink-100 p-3 rounded-full shadow-md z-10 w-16 h-16 flex items-center justify-center border-2 border-pink-400"
+                      class="absolute bg-pink-100 p-3 rounded-full shadow-md z-10 w-14 h-14 flex items-center justify-center border-2 border-pink-400"
                       style="top: 8%; right: 2%"
                     >
-                      <i class="fas fa-piggy-bank text-3xl text-pink-500"></i>
+                      <i class="fas fa-piggy-bank text-2xl text-pink-500"></i>
                     </div>
 
                     <div
-                      class="absolute bg-blue-100 p-3 rounded-full shadow-md z-10 w-16 h-16 flex items-center justify-center border-2 border-blue-400"
+                      class="absolute bg-blue-100 p-3 rounded-full shadow-md z-10 w-14 h-14 flex items-center justify-center border-2 border-blue-400"
                       style="bottom: 20%; left: 8%"
                     >
-                      <i class="fas fa-seedling text-3xl text-green-500"></i>
+                      <i class="fas fa-seedling text-2xl text-green-500"></i>
                     </div>
 
                     <div
-                      class="absolute bg-yellow-100 p-3 rounded-full shadow-md z-10 w-16 h-16 flex items-center justify-center border-2 border-yellow-400"
+                      class="absolute bg-yellow-100 p-3 rounded-full shadow-md z-10 w-14 h-14 flex items-center justify-center border-2 border-yellow-400"
                       style="top: 45%; left: 42%"
                     >
-                      <i class="fas fa-sun text-3xl text-orange-500"></i>
+                      <i class="fas fa-sun text-2xl text-orange-500"></i>
                     </div>
                   </div>
                 </div>
@@ -1055,11 +1068,11 @@
                           position: "bottom",
                           labels: {
                             font: {
-                              family: "'Noto Sans JP', sans-serif",
+                              family: "'Zen Kaku Gothic New', sans-serif",
                               size: 14,
                               weight: "bold",
                             },
-                            color: "#4b5563",
+                            color: "#4b5563", // Dark gray for white theme
                             padding: 20,
                           },
                         },
@@ -1071,7 +1084,7 @@
                         y: {
                           beginAtZero: true,
                           grid: {
-                            color: "#f3f4f6",
+                            color: "#f3f4f6", // Light gray grid
                           },
                           ticks: {
                             display: false, // 数値は出さない（イメージ図なので）
@@ -1083,11 +1096,11 @@
                           },
                           ticks: {
                             font: {
-                              family: "'Noto Sans JP', sans-serif",
+                              family: "'Zen Kaku Gothic New', sans-serif",
                               size: 14,
                               weight: "bold",
                             },
-                            color: "#6b7280",
+                            color: "#6b7280", // Gray-500 for axis
                           },
                         },
                       },
@@ -1222,14 +1235,20 @@
                 width: 100%;
                 height: 100%;
                 max-width: none;
-                background-color: white;
-                padding: 1.5vw 2.5vw; /* Reduced padding further */
+                background-color: rgba(
+                  255,
+                  255,
+                  255,
+                  0.95
+                ); /* White base as requested, slight opacity for feel */
+                padding: 1.5vw 2.5vw;
                 position: relative;
                 display: grid;
                 grid-template-columns: 55% 45%;
-                gap: 1.2vw; /* Reduced gap */
-                border-radius: 0;
-                overflow: hidden; /* Prevent spillover */
+                gap: 1.2vw;
+                border-radius: 8px; /* Slight radius */
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow to separate from dark bg */
               }
 
               /* SVG Arrow Layer */
@@ -1247,7 +1266,7 @@
               .slide.s07 .left-column {
                 display: flex;
                 flex-direction: column;
-                gap: 0.8vw; /* Reduced gap */
+                gap: 0.8vw;
                 padding-right: 1vw;
               }
 
@@ -1257,9 +1276,9 @@
               }
 
               .slide.s07 #main-title {
-                font-size: clamp(14px, 1.6vw, 22px); /* Reduced font */
-                color: #4a90e2;
-                border-bottom: 2px solid #4a90e2;
+                font-size: clamp(14px, 1.6vw, 22px);
+                color: #1e40af; /* Darker Blue for better contrast on white */
+                border-bottom: 2px solid #1e40af;
                 padding-bottom: 0.4vw;
                 font-weight: bold;
                 animation: titleGlow 3s ease-in-out infinite;
@@ -1267,27 +1286,26 @@
 
               /* Organization Info */
               .slide.s07 .organization-info {
-                background-color: #f9f9f9;
-                padding: 0.6vw; /* Reduced */
+                background-color: #f1f5f9; /* Light gray slate-100 */
+                padding: 0.6vw;
                 border-radius: 5px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: 1px solid #cbd5e1;
               }
 
               .slide.s07 .info-row {
                 display: flex;
                 margin-bottom: 0.3vw;
-                font-size: clamp(9px, 0.9vw, 12px); /* Reduced font */
-                align-items: center; /* Align items */
+                font-size: clamp(9px, 0.9vw, 12px);
+                align-items: center;
+                color: #334155; /* Slate-700 */
               }
 
               .slide.s07 .info-row .label {
                 font-weight: bold;
-                width: clamp(
-                  70px,
-                  7.5vw,
-                  100px
-                ); /* Slightly smaller label width */
+                width: clamp(70px, 7.5vw, 100px);
                 flex-shrink: 0;
+                color: #0f172a; /* Slate-900 for labels */
               }
 
               .slide.s07 .info-row .value {
@@ -1296,7 +1314,7 @@
 
               /* Awards Box */
               .slide.s07 .awards-box {
-                border: 3px solid #000;
+                border: 2px solid #334155; /* Slate-700 border */
                 padding: 1vw;
                 background-color: #fff;
                 border-radius: 5px;
@@ -1305,19 +1323,22 @@
               .slide.s07 .awards-content {
                 font-size: clamp(9px, 0.93vw, 13px);
                 line-height: 1.6;
+                color: #334155; /* Slate-700 */
               }
 
               .slide.s07 .awards-content strong {
                 font-size: clamp(10px, 1vw, 14px);
-                color: #333;
+                color: #0f172a; /* Slate-900 */
               }
 
               /* KK Network Group */
               .slide.s07 .kk-network {
-                background-color: #f9f9f9;
+                background-color: #f1f5f9;
                 padding: 1vw;
                 border-radius: 5px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: 1px solid #cbd5e1;
+                color: #334155;
               }
 
               /* Description with red box around specific text */
@@ -1325,15 +1346,19 @@
                 font-size: clamp(10px, 1vw, 14px);
                 line-height: 1.8;
                 padding: 1vw;
-                background-color: #f9f9f9;
+                background-color: #f1f5f9;
                 border-radius: 5px;
                 position: relative;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: 1px solid #cbd5e1;
+                color: #334155;
               }
 
               .slide.s07 #mutual-aid-text {
                 position: relative;
                 display: inline;
+                color: #0f172a;
+                font-weight: bold;
               }
 
               .slide.s07 #mutual-aid-text::after {
@@ -1343,7 +1368,7 @@
                 left: -3px;
                 right: -3px;
                 bottom: -3px;
-                border: 2px solid #ff0000;
+                border: 2px solid #dc2626; /* Red-600 */
                 border-radius: 3px;
                 pointer-events: none;
               }
@@ -1352,6 +1377,7 @@
               .slide.s07 .participation-info {
                 font-size: clamp(11px, 1.07vw, 15px);
                 padding: 0.7vw 1vw;
+                color: #334155;
               }
 
               /* Annual Fee Box */
@@ -1360,11 +1386,12 @@
                 padding: 1vw;
                 background-color: #fff;
                 border-radius: 5px;
+                border: 1px solid #cbd5e1;
               }
 
               .slide.s07 .annual-fee p {
                 font-size: clamp(12px, 1.14vw, 16px);
-                color: #ff0000;
+                color: #dc2626; /* Red-600 */
                 font-weight: bold;
               }
 
@@ -1375,7 +1402,7 @@
                 left: -3px;
                 right: -3px;
                 bottom: -3px;
-                border: 3px solid #ff0000;
+                border: 3px solid #dc2626; /* Red-600 */
                 border-radius: 5px;
                 pointer-events: none;
               }
@@ -2647,9 +2674,9 @@
         <section class="slide s09" data-slide="9">
           <div class="slide-container">
             <!-- ヘッダー -->
-            <div class="w-full pt-8 px-12 pb-2 anim-fade">
+            <div class="w-full pt-4 px-12 pb-2 anim-fade">
               <div
-                class="flex items-center justify-between border-b border-gray-200 pb-4"
+                class="flex items-center justify-between border-b border-gray-200 pb-2"
               >
                 <div>
                   <h1 class="text-3xl font-bold text-gray-800">
@@ -2668,25 +2695,25 @@
             </div>
 
             <!-- メインコンテンツ -->
-            <div class="flex-1 flex w-full p-12 pt-6 space-x-12">
+            <div class="flex-1 flex w-full p-8 pt-4 space-x-8">
               <!-- 左カラム -->
-              <div class="w-3/4 flex flex-col space-y-6">
+              <div class="w-3/4 flex flex-col space-y-4">
                 <!-- 上部：代表理事あいさつ -->
                 <div
-                  class="bg-white/80 rounded-xl p-8 shadow-sm anim-left delay-100 backdrop-blur-sm"
+                  class="bg-white/80 rounded-xl p-6 shadow-sm anim-left delay-100 backdrop-blur-sm"
                 >
                   <!-- Header -->
-                  <div class="mb-6 border-b border-gray-100 pb-4">
+                  <div class="mb-4 border-b border-gray-100 pb-2">
                     <h2
-                      class="text-3xl font-bold text-blue-600 flex items-center"
+                      class="text-2xl font-bold text-blue-600 flex items-center"
                     >
-                      <span class="mr-3 text-2xl">■</span> 代表理事あいさつ
+                      <span class="mr-2 text-xl">■</span> 代表理事あいさつ
                     </h2>
                   </div>
 
                   <!-- Body Text -->
                   <div
-                    class="text-base text-gray-700 leading-relaxed text-justify space-y-6 font-medium"
+                    class="text-sm text-gray-700 leading-relaxed text-justify space-y-4 font-medium"
                   >
                     <p>
                       私は、歯科技工士として社会人をスタートし、1982年に株式会社髙井デンタルスタジオを設立いたしました。その後、様々なビジネスに携わり、1988年に協同組合近畿ハイウェイセンターを発起設立、中小企業間の助けあいを推進する協同組合事業を中心に全国への事業展開をおこなってきました。その経験の中で、中小企業間の助けあいはもちろんですが、これからは個人の助けあいが必要な時代が来ると思い、「相互扶助事業の全国構築」を目的として2002年に18人で全国福利厚生共済会を創立いたしました。そして、2022年には、創立20周年を迎えることができ、会員口数は20万口を超えるまでに成長し、スケールメリットを活用してライフサポートサービスのさらなる充実を図ることも可能となりました。これもひとえに会員の皆様が全厚済と想いをともにし、ご尽力いただいた結果と心より感謝いたします。
@@ -2697,13 +2724,13 @@
                   </div>
                 </div>
 
-                <!-- 下部：テキスト説明エリア (赤枠内容) - Restored & Updated Text -->
+                <!-- 下部：テキスト説明エリア (赤枠内容) -->
                 <div
-                  class="bg-white rounded-xl p-6 shadow-lg border-2 border-red-500 relative anim-up delay-300"
+                  class="bg-white rounded-xl p-4 shadow-lg border-2 border-red-500 relative anim-up delay-300"
                 >
                   <div class="flex flex-col justify-center">
-                    <p class="text-xl text-gray-800 font-bold leading-relaxed">
-                      <span class="text-red-600 text-3xl mr-2 font-serif"
+                    <p class="text-sm text-gray-800 font-bold leading-relaxed">
+                      <span class="text-red-600 text-2xl mr-1 font-serif"
                         >“</span
                       >
                       現代社会は社会保障制度の深刻化、少子高齢化、環境問題、貧困層の拡大等の問題が山積みですが、行政に頼るだけではなく、私たち自身が問題に真摯に向きあい解決に向けて取り組んでいく必要があると感じます。<br /><span
@@ -2712,7 +2739,7 @@
                       ><br />これからも様々な時代の変化はあると思います。しかし、どんな時代も人と人との助けあいは必要不可欠です。
                       「人と人とが助けあう そんなあたり前なことが
                       あたり前にある日常をかなえたい」という想いで全国福利厚生共済会は、これからも皆様と共に日々精進して参ります。
-                      <span class="text-red-600 text-3xl ml-2 font-serif"
+                      <span class="text-red-600 text-2xl ml-1 font-serif"
                         >”</span
                       >
                     </p>
@@ -2724,7 +2751,7 @@
               <div class="right-cont w-1/4">
                 <img
                   src="assets/takaitoshio.png"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-contain rounded-lg"
                 />
               </div>
             </div>
@@ -5788,18 +5815,18 @@
             ></div>
 
             <!-- Header -->
-            <div class="z-10 w-full pt-8 px-12 text-center mb-0">
+            <div class="z-10 w-full pt-4 px-12 text-center mb-2">
               <h1
-                class="text-5xl font-black text-blue-600 tracking-tight flex items-center justify-center gap-4"
+                class="text-4xl font-black text-blue-600 tracking-tight flex items-center justify-center gap-4"
               >
-                <span class="w-4 h-12 bg-blue-600 rounded-full"></span>
+                <span class="w-4 h-10 bg-blue-600 rounded-full"></span>
                 会員種別について
               </h1>
-              <p class="text-gray-600 font-bold mt-2 mb-4">
+              <p class="text-gray-600 font-bold mt-2 mb-2 text-sm">
                 会員種別には契約者（共済会会員・プライム倶楽部会員）とサービス受領者（Kサービス受領者・Pサービス受領者）があります。
               </p>
-              <p class="text-xl text-gray-600 font-bold mt-2">
-                <span class="bg-blue-600 text-white px-3 py-1 rounded"
+              <p class="text-lg text-gray-600 font-bold mt-1">
+                <span class="bg-blue-600 text-white px-3 py-1 rounded text-base"
                   >契約者</span
                 >
                 ご自身の名義の口座もしくはクレジットカードから会費を支払い、ライフサポートサービスを受けることができる。
@@ -5808,25 +5835,25 @@
 
             <!-- Content Grid -->
             <div
-              class="flex flex-row justify-center items-stretch gap-8 w-full px-12 mt-8 relative z-10"
+              class="flex flex-row justify-center items-stretch gap-4 w-full px-8 mt-4 relative z-10"
             >
               <!-- LEFT: K Member -->
               <div
                 id="s24-left"
-                class="w-1/2 bg-white rounded-3xl border-4 border-green-100 shadow-xl flex flex-col p-6 relative overflow-hidden transition-all duration-700 opacity-0 transform translate-x-[-50px] scale-95"
+                class="w-1/2 bg-white rounded-3xl border-4 border-green-100 shadow-xl flex flex-col p-4 relative overflow-hidden transition-all duration-700 opacity-0 transform translate-x-[-50px] scale-95"
               >
                 <!-- Header Row: Title - Image - Price -->
-                <div class="flex items-center justify-start gap-8 mb-4">
+                <div class="flex items-center justify-between gap-2 mb-3">
                   <!-- Title -->
-                  <div class="text-left">
-                    <div class="text-green-600 font-bold text-sm">
+                  <div class="text-left flex-shrink-0">
+                    <div class="text-green-600 font-bold text-xs">
                       共済会会員
                     </div>
-                    <h2 class="text-5xl font-black text-gray-800 leading-none">
-                      K<span class="text-2xl text-gray-600">会員</span>
+                    <h2 class="text-4xl font-black text-gray-800 leading-none">
+                      K<span class="text-xl text-gray-600">会員</span>
                     </h2>
                     <div
-                      class="text-xs font-bold text-red-500 mt-1 bg-red-50 px-2 py-1 rounded"
+                      class="text-[10px] font-bold text-red-500 mt-1 bg-red-50 px-2 py-1 rounded whitespace-nowrap"
                     >
                       ● コミッションは発生しません
                     </div>
@@ -5835,16 +5862,16 @@
                   <!-- Image -->
                   <img
                     src="assets/kclub.png"
-                    class="h-20 object-contain mx-2 anim-bounce"
+                    class="h-16 object-contain mx-1 anim-bounce"
                     alt="K"
                     onerror="this.src='https://placehold.co/100x100?text=K'"
                   />
 
                   <!-- Price -->
                   <div
-                    class="text-6xl font-black text-red-500 tracking-tighter drop-shadow-sm leading-none"
+                    class="text-5xl font-black text-red-500 tracking-tighter drop-shadow-sm leading-none whitespace-nowrap"
                   >
-                    2,800<span class="text-3xl">円</span>
+                    2,800<span class="text-2xl">円</span>
                   </div>
                 </div>
 
@@ -5853,39 +5880,39 @@
                   class="bg-green-50 rounded-xl p-2 border border-green-200 flex flex-col justify-center"
                 >
                   <div
-                    class="bg-green-500 text-white text-center font-bold py-1 rounded-t-lg"
+                    class="bg-green-500 text-white text-center font-bold py-1 rounded-t-lg text-sm"
                   >
                     申込金（初回払込額）
                   </div>
-                  <div class="bg-white rounded-b-lg p-2 shadow-inner space-y-2">
+                  <div class="bg-white rounded-b-lg p-2 shadow-inner space-y-1">
                     <div
-                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-2"
+                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-1"
                     >
-                      <span class="text-gray-500 font-bold text-sm"
+                      <span class="text-gray-500 font-bold text-xs"
                         >初回会費</span
                       >
-                      <span class="text-2xl font-black text-gray-800"
-                        >2,800<span class="text-sm font-normal">円</span></span
+                      <span class="text-xl font-black text-gray-800"
+                        >2,800<span class="text-xs font-normal">円</span></span
                       >
                     </div>
                     <div
-                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-2"
+                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-1"
                     >
-                      <span class="text-gray-500 font-bold text-sm"
+                      <span class="text-gray-500 font-bold text-xs"
                         >登録料(初回のみ)</span
                       >
-                      <span class="text-2xl font-black text-gray-800"
-                        >2,000<span class="text-sm font-normal">円</span></span
+                      <span class="text-xl font-black text-gray-800"
+                        >2,000<span class="text-xs font-normal">円</span></span
                       >
                     </div>
                     <div
-                      class="flex justify-between items-end bg-green-100 p-2 rounded"
+                      class="flex justify-between items-end bg-green-100 p-1 rounded"
                     >
-                      <span class="text-green-800 font-bold"
+                      <span class="text-green-800 font-bold text-sm"
                         >初回払込額合計</span
                       >
-                      <span class="text-2xl font-black text-green-700"
-                        >4,800<span class="text-xl font-normal">円</span></span
+                      <span class="text-xl font-black text-green-700"
+                        >4,800<span class="text-lg font-normal">円</span></span
                       >
                     </div>
                   </div>
@@ -5893,17 +5920,17 @@
 
                 <!-- Monthly & Rule -->
                 <div
-                  class="mt-2 bg-green-600 text-white rounded-xl p-4 text-center shadow-lg transform hover:scale-105 transition-transform"
+                  class="mt-2 bg-green-600 text-white rounded-xl p-3 text-center shadow-lg transform hover:scale-105 transition-transform"
                 >
-                  <div class="font-black text-3xl tracking-tight">
+                  <div class="font-black text-2xl tracking-tight">
                     2回目からは会費 2,800円
                   </div>
-                  <p class="text-green-100 font-bold text-sm mt-1">
+                  <p class="text-green-100 font-bold text-xs mt-1">
                     毎月8日請求 (土日祝の場合は翌営業日)
                   </p>
                 </div>
                 <div class="mt-2 text-center">
-                  <p class="text-xs font-bold text-gray-500">
+                  <p class="text-[10px] font-bold text-gray-500 leading-tight">
                     【K会員登録ルール】申込時に満23歳以上の社会人・個人事業主、もしくは法人。
                   </p>
                 </div>
@@ -5912,29 +5939,29 @@
               <!-- RIGHT: P Member -->
               <div
                 id="s24-right"
-                class="w-1/2 bg-white rounded-3xl border-4 border-blue-100 shadow-xl flex flex-col p-6 relative overflow-hidden transition-all duration-700 opacity-0 transform translate-x-[50px] scale-95"
+                class="w-1/2 bg-white rounded-3xl border-4 border-blue-100 shadow-xl flex flex-col p-4 relative overflow-hidden transition-all duration-700 opacity-0 transform translate-x-[50px] scale-95"
               >
                 <!-- Header Row: Title - Image - Price -->
-                <div class="flex items-center justify-start gap-8 mb-4">
+                <div class="flex items-center justify-between gap-2 mb-3">
                   <!-- Title -->
-                  <div class="text-left">
-                    <div class="text-blue-600 font-bold text-sm">
+                  <div class="text-left flex-shrink-0">
+                    <div class="text-blue-600 font-bold text-xs">
                       プライム倶楽部 会員
                     </div>
-                    <h2 class="text-5xl font-black text-gray-800 leading-none">
-                      P<span class="text-2xl text-gray-600">会員</span>
+                    <h2 class="text-4xl font-black text-gray-800 leading-none">
+                      P<span class="text-xl text-gray-600">会員</span>
                     </h2>
                     <div
-                      class="text-xs font-bold text-blue-500 mt-1 bg-blue-50 px-2 py-1 rounded leading-tight"
+                      class="text-[10px] font-bold text-blue-500 mt-1 bg-blue-50 px-2 py-1 rounded leading-tight whitespace-nowrap"
                     >
-                      ● プライムビジネス(PB)資格を取得していただく<br />ことによりコミッション受領資格が発生します。
+                      ● PB資格取得で<br />コミッション資格発生
                     </div>
                   </div>
 
                   <!-- Image -->
                   <img
                     src="assets/pclub.png"
-                    class="h-20 object-contain mx-2 anim-bounce"
+                    class="h-16 object-contain mx-1 anim-bounce"
                     alt="P"
                     style="animation-delay: 0.2s"
                     onerror="this.src='https://placehold.co/100x100?text=P'"
@@ -5942,9 +5969,9 @@
 
                   <!-- Price -->
                   <div
-                    class="text-6xl font-black text-blue-600 tracking-tighter drop-shadow-sm leading-none"
+                    class="text-5xl font-black text-blue-600 tracking-tighter drop-shadow-sm leading-none whitespace-nowrap"
                   >
-                    4,000<span class="text-3xl">円</span>
+                    4,000<span class="text-2xl">円</span>
                   </div>
                 </div>
 
@@ -5953,39 +5980,39 @@
                   class="bg-blue-50 rounded-xl p-2 border border-blue-200 flex flex-col justify-center"
                 >
                   <div
-                    class="bg-blue-600 text-white text-center font-bold py-1 rounded-t-lg"
+                    class="bg-blue-600 text-white text-center font-bold py-1 rounded-t-lg text-sm"
                   >
                     申込金（初回払込額）
                   </div>
-                  <div class="bg-white rounded-b-lg p-2 shadow-inner space-y-2">
+                  <div class="bg-white rounded-b-lg p-2 shadow-inner space-y-1">
                     <div
-                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-2"
+                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-1"
                     >
-                      <span class="text-gray-500 font-bold text-sm"
+                      <span class="text-gray-500 font-bold text-xs"
                         >初回会費</span
                       >
-                      <span class="text-2xl font-black text-gray-800"
-                        >4,000<span class="text-sm font-normal">円</span></span
+                      <span class="text-xl font-black text-gray-800"
+                        >4,000<span class="text-xs font-normal">円</span></span
                       >
                     </div>
                     <div
-                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-2"
+                      class="flex justify-between items-end border-b border-dashed border-gray-300 pb-1"
                     >
-                      <span class="text-gray-500 font-bold text-sm"
+                      <span class="text-gray-500 font-bold text-xs"
                         >登録料(初回のみ)</span
                       >
-                      <span class="text-2xl font-black text-gray-800"
-                        >10,000<span class="text-sm font-normal">円</span></span
+                      <span class="text-xl font-black text-gray-800"
+                        >10,000<span class="text-xs font-normal">円</span></span
                       >
                     </div>
                     <div
-                      class="flex justify-between items-end bg-blue-100 p-2 rounded"
+                      class="flex justify-between items-end bg-blue-100 p-1 rounded"
                     >
-                      <span class="text-blue-800 font-bold"
+                      <span class="text-blue-800 font-bold text-sm"
                         >初回払込額合計</span
                       >
-                      <span class="text-2xl font-black text-blue-800"
-                        >14,000<span class="text-xl font-normal">円</span></span
+                      <span class="text-xl font-black text-blue-800"
+                        >14,000<span class="text-lg font-normal">円</span></span
                       >
                     </div>
                   </div>
@@ -5993,18 +6020,18 @@
 
                 <!-- Monthly & Rule -->
                 <div
-                  class="mt-2 bg-blue-600 text-white rounded-xl p-4 text-center shadow-lg transform hover:scale-105 transition-transform"
+                  class="mt-2 bg-blue-600 text-white rounded-xl p-3 text-center shadow-lg transform hover:scale-105 transition-transform"
                 >
-                  <div class="font-black text-3xl tracking-tight">
+                  <div class="font-black text-2xl tracking-tight">
                     2回目からは会費 4,000円
                   </div>
-                  <p class="text-blue-100 font-bold text-sm mt-1">
-                    毎月8日請求 (土日祝の場合は翌営業日)
+                  <p class="text-blue-100 font-bold text-xs mt-1">
+                    毎月27日請求 (土日祝の場合は翌営業日)
                   </p>
                 </div>
                 <div class="mt-2 text-center">
-                  <p class="text-xs font-bold text-gray-500">
-                    【P会員登録ルール】申込時に満23歳以上75歳未満の社会人・個人事業主、もしくは法人。
+                  <p class="text-[10px] font-bold text-gray-500 leading-tight">
+                    【P会員登録ルール】申込時に満20歳以上の社会人・個人事業主、もしくは法人。学生不可。
                   </p>
                 </div>
               </div>
@@ -6035,7 +6062,7 @@
         <section class="slide s25" data-slide="27">
           <div class="slide-container fallback">
             <div
-              class="slide-container bg-white flex flex-col items-center justify-start pt-16 h-full relative overflow-hidden com"
+              class="slide-container bg-white flex flex-col items-center justify-start pt-8 h-full relative overflow-hidden com"
             >
               <!-- Background Decor -->
               <div
@@ -6046,9 +6073,9 @@
               ></div>
 
               <!-- Header -->
-              <div class="text-center z-10 w-full mb-8 shrink-0">
+              <div class="text-center z-10 w-full mb-4 shrink-0">
                 <h2
-                  class="text-6xl font-black text-blue-600 tracking-wider inline-block border-b-4 border-blue-600 pb-2 mb-6"
+                  class="text-5xl font-black text-blue-600 tracking-wider inline-block border-b-4 border-blue-600 pb-2 mb-4"
                 >
                   コミッションについて
                 </h2>
@@ -6062,18 +6089,18 @@
 
               <!-- Main List -->
               <div
-                class="w-full max-w-4xl space-y-5 z-10 pl-16 overflow-y-auto"
+                class="w-full max-w-4xl space-y-3 z-10 pl-16 overflow-y-auto"
               >
                 <!-- 1 -->
                 <div
-                  class="fragment fade-up bg-blue-800 text-white text-3xl font-bold py-3 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
+                  class="fragment fade-up bg-blue-800 text-white text-2xl font-bold py-2 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
                 >
                   1. イクスパンドコミッション
                 </div>
 
                 <!-- 2 (Red Marker) -->
                 <div
-                  class="fragment fade-up bg-blue-800 text-white text-3xl font-bold py-3 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
+                  class="fragment fade-up bg-blue-800 text-white text-2xl font-bold py-2 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
                 >
                   <div
                     class="absolute top-0 bottom-0 -left-16 w-12 bg-red-500 rounded shadow-md"
@@ -6083,14 +6110,14 @@
 
                 <!-- 3 -->
                 <div
-                  class="fragment fade-up bg-blue-800 text-white text-3xl font-bold py-3 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
+                  class="fragment fade-up bg-blue-800 text-white text-2xl font-bold py-2 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
                 >
                   3. アシスタントコミッション
                 </div>
 
                 <!-- 4 (Red Marker) -->
                 <div
-                  class="fragment fade-up bg-blue-800 text-white text-3xl font-bold py-3 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
+                  class="fragment fade-up bg-blue-800 text-white text-2xl font-bold py-2 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
                 >
                   <div
                     class="absolute top-0 bottom-0 -left-16 w-12 bg-red-500 rounded shadow-md"
@@ -6100,7 +6127,7 @@
 
                 <!-- 5 (Red Marker) -->
                 <div
-                  class="fragment fade-up bg-blue-800 text-white text-3xl font-bold py-3 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
+                  class="fragment fade-up bg-blue-800 text-white text-2xl font-bold py-2 text-center rounded shadow-lg relative transform transition-transform hover:scale-105"
                 >
                   <div
                     class="absolute top-0 bottom-0 -left-16 w-12 bg-red-500 rounded shadow-md"
@@ -6111,7 +6138,7 @@
 
               <!-- Footer -->
               <div
-                class="mt-8 mb-8 max-w-5xl mx-auto text-left space-y-3 z-10 px-8 shrink-0"
+                class="mt-4 mb-4 max-w-5xl mx-auto text-left space-y-2 z-10 px-8 shrink-0"
               >
                 <p class="text-red-600 font-bold text-sm flex items-start">
                   <span class="mr-2">●</span>
@@ -6625,9 +6652,9 @@
               </div>
 
               <!-- Main Content -->
-              <div class="flex-1 flex px-12 pt-8 pb-4 relative">
+              <div class="flex-1 flex px-12 pt-4 pb-4 relative">
                 <!-- Left: Tree Diagram (Refined Match & Animated) -->
-                <div class="w-1/2 relative h-full">
+                <div class="w-3/5 relative h-full">
                   <h3
                     class="font-black text-2xl text-gray-800 mb-4 border-l-8 border-blue-600 pl-4 com4-txt"
                   >
@@ -7151,23 +7178,23 @@
                 </div>
 
                 <!-- Right: Feature Cards (Updated Style) -->
-                <div class="w-1/2 flex flex-col justify-center gap-6 z-20 pl-8">
+                <div class="w-2/5 flex flex-col justify-center gap-4 z-20 pl-8">
                   <!-- Feature 1 -->
                   <div
-                    class="feature-card p-8 border-l-8 border-pink-500 anim-slide-right delay-500 hover:scale-105 transition-transform duration-300"
+                    class="feature-card p-4 border-l-8 border-pink-500 anim-slide-right delay-500 hover:scale-105 transition-transform duration-300"
                   >
-                    <div class="flex items-start mb-2">
+                    <div class="flex items-start mb-1">
                       <div
-                        class="bg-pink-100 text-pink-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-2xl"
+                        class="bg-pink-100 text-pink-600 w-12 h-12 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-xl"
                       >
                         <i class="fas fa-sync-alt anim-pulse"></i>
                       </div>
                       <div>
-                        <h3 class="text-2xl font-black text-gray-800">
+                        <h3 class="text-xl font-black text-gray-800">
                           リピート率 90%以上
                         </h3>
                         <p
-                          class="text-lg text-gray-500 mt-2 font-bold leading-relaxed"
+                          class="text-base text-gray-500 mt-1 font-bold leading-relaxed"
                         >
                           生活密着サービスだから<br />継続率が高い！
                         </p>
@@ -7178,18 +7205,18 @@
                   <div
                     class="feature-card p-4 border-l-8 border-blue-500 anim-slide-right delay-700 hover:scale-105 transition-transform duration-300"
                   >
-                    <div class="flex items-start mb-2">
+                    <div class="flex items-start mb-1">
                       <div
-                        class="bg-blue-100 text-blue-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-2xl"
+                        class="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-xl"
                       >
                         <i class="fas fa-cubes anim-float"></i>
                       </div>
                       <div>
-                        <h3 class="text-2xl font-black text-gray-800">
+                        <h3 class="text-xl font-black text-gray-800">
                           累積しやすい
                         </h3>
                         <p
-                          class="text-lg text-gray-500 mt-2 font-bold leading-relaxed"
+                          class="text-base text-gray-500 mt-1 font-bold leading-relaxed"
                         >
                           ポイントが消えずに<br />積み上がる仕組み
                         </p>
@@ -7198,34 +7225,25 @@
                   </div>
                   <!-- Feature 3 -->
                   <div
-                    class="feature-card p-8 border-l-8 border-green-500 anim-slide-right delay-900 hover:scale-105 transition-transform duration-300"
+                    class="feature-card p-4 border-l-8 border-green-500 anim-slide-right delay-900 hover:scale-105 transition-transform duration-300"
                   >
-                    <div class="flex items-start mb-2">
+                    <div class="flex items-start mb-1">
                       <div
-                        class="bg-green-100 text-green-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0 text-2xl"
+                        class="bg-green-100 text-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-xl"
                       >
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-chart-line anim-grow"></i>
                       </div>
                       <div>
-                        <h3 class="text-2xl font-black text-gray-800">
+                        <h3 class="text-xl font-black text-gray-800">
                           複利的＆バトンリレー
                         </h3>
                         <p
-                          class="text-lg text-gray-500 mt-2 font-bold leading-relaxed"
+                          class="text-base text-gray-500 mt-1 font-bold leading-relaxed"
                         >
                           紹介の連鎖で組織が<br />自然に拡大
                         </p>
                       </div>
                     </div>
-                  </div>
-                  <!-- Yellow Box -->
-                  <div
-                    class="mt-4 bg-yellow-50 rounded-xl p-6 border-2 border-yellow-200 anim-pop delay-1000 text-center shadow-lg transform hover:scale-105 transition-transform cursor-pointer"
-                  >
-                    <p class="text-yellow-800 font-black text-2xl">
-                      <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                      シンプルな2系列配置！
-                    </p>
                   </div>
                 </div>
               </div>
@@ -7829,17 +7847,25 @@
 
           <style>
             /* このスライド内だけに効かせる */
-            .slide.s30-5 .roundcircle-embed {
-              width: min(100%, 980px);
-              margin: 0 auto;
+            .slide.s30-7 .flexs {
+              align-items: center; /* Center vertically */
+              justify-content: space-around; /* Space out items */
+              padding-top: 100px; /* Push down to avoid overlap with top bubbles */
+            }
+            .slide.s30-7 .roundcircle-embed {
+              width: 55%; /* Reduced width */
+              margin: 0;
               user-select: none;
             }
-            .slide.s30-5 .roundcircle-embed svg {
+            .slide.s30-7 .p-k {
+              width: 35%; /* Increased width */
+            }
+            .slide.s30-7 .roundcircle-embed svg {
               width: 100%;
               height: auto;
               display: block;
             }
-            .slide.s30-5 .roundcircle-btn {
+            .slide.s30-7 .roundcircle-btn {
               margin: 14px auto 0;
               display: block;
               padding: 10px 14px;
@@ -7849,7 +7875,7 @@
               font-weight: 700;
               cursor: pointer;
             }
-            .slide.s30-5 .roundcircle-btn:active {
+            .slide.s30-7 .roundcircle-btn:active {
               transform: translateY(1px);
             }
           </style>
@@ -9866,9 +9892,9 @@
                 </div>
 
                 <!-- Footer Note -->
-                <div class="mt-8 text-center">
-                  <p class="text-red-600 font-bold text-2xl inline-block">
-                    ●ウィナーズコミッションの支払い上限は、ラウンドコミッションとウィナーズコミッションの合計額で1口につき月額500万円です。
+                <div class="winner text-center">
+                  <p class="text-red-600 font-bold winner-text inline-block">
+                    ●ウィナーズコミッションの支払い上限は、ラウンドコミッションとウィナーズコミッションの合計額で<br />1口につき月額500万円です。
                   </p>
                 </div>
               </div>

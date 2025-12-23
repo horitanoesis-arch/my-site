@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   initDeck();
-  initThreeJS();
+  initParticleBackground();
 });
 
 /* =========================================
@@ -417,143 +417,141 @@ function hideCurrentFragment() {
    Three.js Background (Reliable Blue/Abstract)
    ========================================= */
 function handleResize() {
-  // FLUID MODE: We disable JS scaling and let CSS handle width/height (96vw/90vh).
-  // This allows the layout to be responsive and eliminates black bars.
-  DOM.wrapper.style.transform = "none";
+  const baseWidth = 1280;
+  const baseHeight = 720;
+  
+  // Calculate scale to fit the screen while maintaining aspect ratio
+  // Use a slightly smaller factor (0.95) to ensure some padding
+  const scale = Math.min(
+    (window.innerWidth / baseWidth) * 0.95,
+    (window.innerHeight / baseHeight) * 0.95
+  );
+
+  DOM.wrapper.style.width = `${baseWidth}px`;
+  DOM.wrapper.style.height = `${baseHeight}px`;
+  // Use translate(-50%, -50%) to center the element from top:50%/left:50%
+  DOM.wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
 /* =========================================
-   Three.js Background (Forest & Sky)
+   Particle Background
    ========================================= */
-function initThreeJS() {
+class Particle {
+  constructor(w, h, color) {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    
+    // Speed up: approx 3x previous speed range
+    this.vx = (Math.random() - 0.5) * 1.5; 
+    this.vy = (Math.random() - 0.5) * 1.5;
+    
+    this.baseRadius = Math.random() * 250 + 150; 
+    this.radius = this.baseRadius;
+    this.color = color;
+    this.angle = Math.random() * Math.PI * 2;
+    // Pulsation speed
+    this.angleSpeed = 0.01 + Math.random() * 0.02;
+  }
+
+  update(w, h) {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.angle += this.angleSpeed;
+
+    // Bounce off edges
+    if (this.x < -this.baseRadius) this.vx *= -1;
+    if (this.x > w + this.baseRadius) this.vx *= -1;
+    if (this.y < -this.baseRadius) this.vy *= -1;
+    if (this.y > h + this.baseRadius) this.vy *= -1;
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    
+    // Pulsate radius
+    const r = this.baseRadius + Math.sin(this.angle) * 60;
+    
+    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, Math.max(0, r));
+    
+    // Increase visibility
+    gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.5)`);
+    gradient.addColorStop(0.4, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.15)`);
+    gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
+
+    ctx.fillStyle = gradient;
+    ctx.arc(this.x, this.y, Math.max(0, r), 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function initParticleBackground() {
   const canvas = document.getElementById("bg-canvas");
   if (!canvas) return;
 
-  const scene = new THREE.Scene();
+  const ctx = canvas.getContext('2d');
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let animationFrameId = 0;
+  let particles = [];
 
-  // Camera positioned to see the ground and sky
-  const camera = new THREE.PerspectiveCamera(
-    60,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  camera.position.set(0, 10, 50); // Higher and further back
-  camera.lookAt(0, 5, 0);
+  // Settings: Deep Blue, Violet, Charcoal, Gold accents
+  const colors = [
+    { r: 15, g: 23, b: 42 },   // Slate 900 (Base Dark)
+    { r: 49, g: 46, b: 129 },  // Indigo 900 (Deep Blue)
+    { r: 107, g: 33, b: 168 }, // Purple 800 (Accent 1)
+    { r: 87, g: 83, b: 78 },   // Stone 600 (Muted Grey)
+    { r: 217, g: 119, b: 6 },  // Amber 600 (Gold Accent)
+  ];
 
-  const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    alpha: true,
-    antialias: true,
-  });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-  // --- LIGHTING ---
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-  scene.add(ambientLight);
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
-  dirLight.position.set(20, 30, 10);
-  scene.add(dirLight);
-
-  // --- FOREST GROUP ---
-  const forest = new THREE.Group();
-  scene.add(forest);
-
-  // Ground
-  const groundGeo = new THREE.CylinderGeometry(150, 150, 20, 64);
-  const groundMat = new THREE.MeshToonMaterial({ color: 0x66bb6a });
-  const ground = new THREE.Mesh(groundGeo, groundMat);
-  ground.position.y = -22; // Flat ground platform
-  forest.add(ground);
-
-  // Trees
-  const treeGeo = new THREE.ConeGeometry(2, 6, 8);
-  const trunkGeo = new THREE.CylinderGeometry(0.5, 0.7, 1.5, 8);
-  const treeMat = new THREE.MeshToonMaterial({ color: 0x2e7d32 });
-  const trunkMat = new THREE.MeshToonMaterial({ color: 0x5d4037 });
-
-  const treeCount = 100;
-
-  for (let i = 0; i < treeCount; i++) {
-    const treeGroup = new THREE.Group();
-
-    // Random Position on the disc
-    const angle = Math.random() * Math.PI * 2;
-    const radius = Math.random() * 100 + 15; // Avoid center
-    const x = Math.cos(angle) * radius;
-    const z = Math.sin(angle) * radius - 40; // Push back
-
-    // Keep some in view
-    if (z < -80 || z > 20) continue;
-
-    treeGroup.position.set(x * 1.5, -12, z); // Adjust y to sit on cylinder
-
-    const s = Math.random() * 1 + 0.5;
-    treeGroup.scale.set(s, 0, s);
-
-    const trunk = new THREE.Mesh(trunkGeo, trunkMat);
-    trunk.position.y = 0.75;
-    treeGroup.add(trunk);
-
-    const leaves = new THREE.Mesh(treeGeo, treeMat);
-    leaves.position.y = 3.5;
-    treeGroup.add(leaves);
-
-    forest.add(treeGroup);
-
-    // Grow
-    gsap.to(treeGroup.scale, {
-      y: s,
-      duration: 1.5 + Math.random(),
-      delay: Math.random() * 0.5,
-      ease: "back.out(1.5)",
-    });
+  function initCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
   }
 
-  // Clouds (Fluffy)
-  const clouds = [];
-  const cloudMat = new THREE.MeshBasicMaterial({
-    color: 0xffffff,
-    transparent: true,
-    opacity: 0.7,
-  });
+  function createParticles() {
+    particles = [];
+    const particleCount = 18; 
 
-  for (let i = 0; i < 8; i++) {
-    const c = new THREE.Group();
-    // Clumps
-    for (let j = 0; j < 4; j++) {
-      const puff = new THREE.Mesh(
-        new THREE.SphereGeometry(4, 16, 16),
-        cloudMat
-      );
-      puff.position.set(
-        Math.random() * 6 - 3,
-        Math.random() * 2,
-        Math.random() * 4 - 2
-      );
-      c.add(puff);
+    for (let i = 0; i < particleCount; i++) {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particles.push(new Particle(width, height, color));
     }
-    c.position.set((Math.random() - 0.5) * 120, 25 + Math.random() * 15, -20);
-    scene.add(c);
-    clouds.push({ mesh: c, speed: Math.random() * 0.02 + 0.01 });
   }
 
-  const animate = () => {
-    requestAnimationFrame(animate);
-    clouds.forEach((c) => {
-      c.mesh.position.x += c.speed;
-      if (c.mesh.position.x > 100) c.mesh.position.x = -100;
+  function animate() {
+    // Clear background with trail effect
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = 'rgba(2, 6, 23, 0.1)'; 
+    ctx.fillRect(0, 0, width, height);
+
+    // Additive blending for glow
+    ctx.globalCompositeOperation = 'lighter';
+
+    particles.forEach(p => {
+      p.update(width, height);
+      p.draw(ctx);
     });
-    renderer.render(scene, camera);
-  };
+
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  // Init
+  initCanvas();
+  createParticles();
   animate();
 
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    handleResize();
+  // Resize
+  window.addEventListener('resize', () => {
+    initCanvas();
+    createParticles(); 
   });
 }
 
