@@ -1810,7 +1810,6 @@
               }
 
               .flex.flex-col.space-y-6 {
-                background: #fff;
                 border-radius: 0.75rem;
               }
 
@@ -4960,205 +4959,250 @@
         <!-- SLIDE 19 -->
         <section class="slide s19" data-slide="22">
           <div class="slide-container fallback">
-            <div class="slide-container bg-dots relative p-10">
-              <!-- 装飾背景 -->
+            <div
+              class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden px-12 py-8"
+            >
+              <!-- Global Decoration -->
               <div
-                class="absolute top-0 left-0 w-full h-64 bg-white shadow-sm z-0"
+                class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full opacity-30 blur-3xl z-0"
               ></div>
               <div
-                class="absolute -top-10 -right-10 w-64 h-64 bg-blue-50 rounded-full opacity-50 z-0"
-              ></div>
-              <div
-                class="absolute top-40 -left-10 w-40 h-40 bg-green-50 rounded-full opacity-50 z-0"
+                class="absolute bottom-0 left-0 w-64 h-64 bg-pink-50 rounded-full opacity-30 blur-3xl z-0"
               ></div>
 
-              <!-- ヘッダー -->
-              <div class="relative z-10 text-center mb-8 anim-up">
-                <div
-                  class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4 tracking-widest uppercase"
-                >
-                  Membership Plan
-                </div>
-                <h1 class="text-4xl font-black text-gray-800">
-                  選べる2つの会員プラン
-                </h1>
-                <p class="text-gray-500 mt-2 font-bold">
-                  ライフスタイルに合わせてお選びいただけます
-                </p>
-              </div>
-
-              <!-- プランカードエリア -->
+              <!-- Main Content Area -->
               <div
-                class="relative z-10 flex-1 flex justify-center items-start gap-12 px-12"
+                class="relative z-10 flex h-full items-stretch gap-6 pb-2 justify-center px-16"
               >
-                <!-- K会員カード (左) -->
-                <div
-                  class="plan-card w-1/2 bg-white rounded-3xl shadow-xl overflow-hidden border-t-8 border-green-500 anim-left delay-200 flex flex-col h-auto"
-                >
+                <!-- Column 1: Create (Red) -->
+                <div class="flex-1 flex flex-col relative group">
+                  <!-- P Badge -->
                   <div
-                    class="bg-green-50 p-6 text-center border-b border-green-100"
+                    class="absolute -right-8 top-1/2 transform -translate-y-1/2 z-20 bg-white text-blue-600 font-black text-4xl w-16 h-16 rounded-full shadow-lg flex items-center justify-center border-4 border-blue-50"
+                  >
+                    P
+                  </div>
+
+                  <!-- Header -->
+                  <div class="text-center mb-4">
+                    <h2 class="text-5xl font-black text-red-600 tracking-wider">
+                      創る
+                    </h2>
+                  </div>
+                  <!-- Content Card -->
+                  <div
+                    class="flex-1 bg-gradient-to-b from-red-500 to-red-600 rounded-2xl shadow-xl flex flex-col justify-center items-center text-white py-6 px-4 relative overflow-hidden"
                   >
                     <div
-                      class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 text-green-600 text-3xl anim-bounce"
+                      class="absolute top-0 left-0 w-full h-full bg-noise opacity-10"
+                    ></div>
+                    <div
+                      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-20"
+                    ></div>
+
+                    <!-- Hidden Mechanism Text -->
+                    <div
+                      class="mechanism-text absolute top-12 left-1/2 transform -translate-x-1/2 text-4xl font-black text-white tracking-widest border-4 border-white rounded-full px-6 py-2 z-10 whitespace-nowrap fragment"
+                      data-fragment-index="1"
                     >
-                      <i class="fas fa-leaf"></i>
-                    </div>
-                    <h2 class="text-3xl font-black text-green-600 mb-1">
-                      K会員
-                    </h2>
-                    <p class="text-sm text-green-700 font-bold opacity-80">
-                      スタンダードプラン
-                    </p>
-                  </div>
-
-                  <div class="p-8 flex-1 flex flex-col items-center">
-                    <div class="text-center mb-8">
-                      <p class="text-gray-400 text-xs font-bold mb-1">月会費</p>
-                      <div
-                        class="flex items-baseline justify-center text-gray-800"
-                      >
-                        <span
-                          class="text-5xl font-black font-rounded tracking-tight"
-                          >2,800</span
-                        >
-                        <span class="text-xl font-bold ml-1">円</span>
-                      </div>
+                      仕組み側
                     </div>
 
-                    <div class="w-full space-y-4">
-                      <div class="flex items-start bg-gray-50 p-3 rounded-lg">
-                        <i
-                          class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"
-                        ></i>
-                        <div>
-                          <p class="font-bold text-gray-700 text-sm">
-                            登録条件
-                          </p>
-                          <p class="text-xs text-gray-500 mt-1">
-                            申込時に満23歳以上の<br />社会人・個人事業主・法人
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <ul
+                      class="space-y-4 text-center font-bold text-xl tracking-wide w-full leading-relaxed"
+                    >
+                      <li class="border-b border-white/20 pb-1">Amazon</li>
+                      <li class="border-b border-white/20 pb-1">イオン</li>
+                      <li class="border-b border-white/20 pb-1">
+                        マンションオーナー
+                      </li>
+                      <li class="border-b border-white/20 pb-1">漫画家</li>
+                      <li class="border-b border-white/20 pb-1">
+                        セブンイレブン
+                      </li>
+                      <li>メーカー</li>
+                    </ul>
 
-                  <div class="bg-gray-50 p-4 text-center">
-                    <p class="text-xs text-gray-400 font-bold">
-                      手軽に始めたい方に最適
-                    </p>
+                    <!-- Zenkousai Overlay (Moved inside Red Card) -->
+                    <div
+                      class="zenkousai-overlay absolute top-[28%] left-0 w-full h-[35%] flex items-center justify-center z-20 pointer-events-none fragment no-anim"
+                      data-fragment-index="1"
+                    >
+                      <img
+                        src="assets/zenkousai.png"
+                        alt="Zenkousai"
+                        class="w-[90%] h-full object-contain drop-shadow-2xl"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <!-- P会員カード (右) -->
-                <div
-                  class="plan-card w-1/2 bg-white rounded-3xl shadow-2xl overflow-hidden border-t-8 border-pink-500 transform scale-105 anim-right delay-400 flex flex-col h-auto relative"
-                >
-                  <div
-                    class="absolute top-0 right-0 bg-yellow-400 text-white text-xs font-bold px-3 py-1 rounded-bl-lg shadow-sm z-20"
-                  >
-                    POPULAR
+                <!-- Column 2: Sell (Blue) -->
+                <div class="flex-1 flex flex-col relative group">
+                  <!-- Header -->
+                  <div class="text-center mb-4">
+                    <h2
+                      class="text-5xl font-black text-blue-500 tracking-wider"
+                    >
+                      売る
+                    </h2>
                   </div>
-
+                  <!-- Content Card -->
                   <div
-                    class="bg-pink-50 p-6 text-center border-b border-pink-100"
+                    class="flex-1 bg-gradient-to-b from-blue-400 to-blue-500 rounded-2xl shadow-xl flex flex-col justify-center items-center text-white py-6 px-4 relative overflow-hidden"
                   >
                     <div
-                      class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3 text-pink-500 text-3xl anim-bounce"
-                      style="animation-delay: 0.5s"
+                      class="absolute top-0 left-0 w-full h-full bg-noise opacity-10"
+                    ></div>
+                    <div
+                      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-20"
+                    ></div>
+
+                    <ul
+                      class="space-y-4 text-center font-bold text-lg tracking-wide w-full leading-relaxed"
                     >
-                      <i class="fas fa-crown"></i>
-                    </div>
-                    <h2 class="text-3xl font-black text-pink-500 mb-1">
-                      P会員
+                      <li class="border-b border-white/20 pb-1">物販・販売</li>
+                      <li class="border-b border-white/20 pb-1">テナント</li>
+                      <li class="border-b border-white/20 pb-1">不動産仲介</li>
+                      <li class="border-b border-white/20 pb-1">
+                        出版社・販売者
+                      </li>
+                      <li class="border-b border-white/20 pb-1">FCオーナー</li>
+                      <li class="border-b border-white/20 pb-1">販売</li>
+                      <li>セールス</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 3: Buy (Green) -->
+                <div class="flex-1 flex flex-col relative group">
+                  <!-- K Badge -->
+                  <div
+                    class="absolute -right-8 top-1/2 transform -translate-y-1/2 z-20 bg-white text-red-600 font-black text-5xl w-16 h-16 rounded-full shadow-lg flex items-center justify-center border-4 border-red-50"
+                  >
+                    K
+                  </div>
+
+                  <!-- Header -->
+                  <div class="text-center mb-4">
+                    <h2
+                      class="text-5xl font-black text-green-600 tracking-wider"
+                    >
+                      買う
                     </h2>
-                    <p class="text-sm text-pink-700 font-bold opacity-80">
-                      プレミアムプラン
-                    </p>
                   </div>
-
-                  <div class="p-8 flex-1 flex flex-col items-center">
-                    <div class="text-center mb-8">
-                      <p class="text-gray-400 text-xs font-bold mb-1">月会費</p>
-                      <div
-                        class="flex items-baseline justify-center text-gray-800"
-                      >
-                        <span
-                          class="text-6xl font-black font-rounded tracking-tight text-pink-600"
-                          >4,000</span
-                        >
-                        <span class="text-2xl font-bold ml-1 text-pink-600"
-                          >円</span
-                        >
-                      </div>
-                    </div>
-
-                    <div class="w-full space-y-4">
-                      <div class="flex items-start bg-gray-50 p-3 rounded-lg">
-                        <i
-                          class="fas fa-check-circle text-pink-500 mt-1 mr-3 text-lg"
-                        ></i>
-                        <div>
-                          <p class="font-bold text-gray-700 text-sm">
-                            登録条件
-                          </p>
-                          <p class="text-xs text-gray-500 mt-1">
-                            申込時に満23歳以上75歳未満の<br />社会人・個人事業主・法人
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-pink-600 p-4 text-center">
-                    <p class="text-xs text-white font-bold">
-                      充実したサービスを活用したい方へ
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 共通情報 -->
-              <div
-                class="relative z-10 mt-8 mx-auto w-full max-w-4xl bg-white rounded-xl shadow-md p-4 flex items-center justify-between border-l-4 border-blue-400 anim-up delay-600"
-              >
-                <div class="flex items-center">
+                  <!-- Content Card -->
                   <div
-                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-4"
+                    class="flex-1 bg-gradient-to-b from-green-500 to-green-600 rounded-2xl shadow-xl flex flex-col justify-center items-center text-white py-6 px-4 relative overflow-hidden"
                   >
-                    <i class="fas fa-calendar-alt"></i>
-                  </div>
-                  <div>
-                    <p class="font-bold text-gray-700">
-                      会費のお支払いについて
-                    </p>
-                    <p class="text-xs text-gray-500">
-                      2回目からは<span class="font-bold text-blue-600"
-                        >毎月8日請求</span
-                      >（土日祝日の場合は翌営業日）
-                    </p>
-                  </div>
-                </div>
+                    <div
+                      class="absolute top-0 left-0 w-full h-full bg-noise opacity-10"
+                    ></div>
+                    <div
+                      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent opacity-20"
+                    ></div>
 
-                <div class="flex items-center space-x-4">
-                  <div class="text-right">
-                    <p class="text-xs text-gray-400 font-bold">
-                      法人契約も可能
-                    </p>
-                    <p class="text-xs text-gray-400">個人事業主もOK</p>
-                  </div>
-                  <div
-                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"
-                  >
-                    <i class="fas fa-briefcase"></i>
+                    <ul
+                      class="space-y-4 text-center font-bold text-xl tracking-wide w-full leading-relaxed"
+                    >
+                      <li class="border-b border-white/20 pb-1">買う人</li>
+                      <li class="border-b border-white/20 pb-1">入居者</li>
+                      <li class="border-b border-white/20 pb-1">
+                        買う人・読む人
+                      </li>
+                      <li class="border-b border-white/20 pb-1">買う人</li>
+                      <li class="border-b border-white/20 pb-1">消費者</li>
+                      <li>加入者</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <section class="slide s23" data-slide="23">
+          <div
+            class="slide-container bg-white relative overflow-hidden font-bold select-none flex items-center justify-center"
+          >
+            <!-- Grid Layout with Inline Styles for Guaranteed Horizontal Display -->
+            <div
+              class="items-center w-full max-w-7xl px-12 gap-8 h-full"
+              style="
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: center;
+              "
+            >
+              <!-- Left: Price (Aligned Right) -->
+              <div
+                class="flex justify-center items-center text-red-600 font-bold h-full"
+              >
+                <span
+                  class="tracking-tighter"
+                  style="
+                    font-size: 130px;
+                    font-family: 'Zen Kaku Gothic New', sans-serif;
+                    line-height: 1.1;
+                  "
+                  >2800</span
+                >
+                <span
+                  class="ml-4"
+                  style="
+                    font-size: 130px;
+                    font-family: 'Zen Kaku Gothic New', sans-serif;
+                    line-height: 1.1;
+                  "
+                  >円</span
+                >
+              </div>
 
+              <!-- Center: Swap Container (Relative) -->
+              <div
+                class="flex justify-center items-center h-full relative w-[300px]"
+              >
+                <!-- Step 1: Less Than (<) -->
+                <div
+                  id="less-than-symbol"
+                  class="font-light text-black leading-none fragment spin-reveal absolute inset-0 flex justify-center items-center"
+                  data-fragment-index="1"
+                  style="
+                    font-size: 150px;
+                    font-family: 'Zen Maru Gothic', sans-serif;
+                  "
+                >
+                  &lt;
+                </div>
+                <!-- Step 2: Question Mark (?) - Hides the < symbol -->
+                <div
+                  class="font-light text-black leading-none fragment spin-reveal absolute inset-0 flex justify-center items-center"
+                  data-fragment-index="2"
+                  data-hide-target="#less-than-symbol"
+                  style="
+                    font-size: 150px;
+                    font-family: 'Zen Maru Gothic', sans-serif;
+                  "
+                >
+                  ?
+                </div>
+              </div>
+
+              <!-- Right: Image Only (Aligned Left) -->
+              <div
+                class="flex flex-col items-start justify-center pl-12 h-full w-full"
+              >
+                <img
+                  src="assets/kclub.png"
+                  alt="K Club"
+                  class="object-contain drop-shadow-2xl"
+                  style="width: 100%"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- SLIDE 20 -->
-        <section class="slide s20" data-slide="23">
+        <section class="slide s20" data-slide="24">
           <div
             class="slide-container bg-white relative overflow-hidden font-bold select-none"
           >
@@ -5553,252 +5597,627 @@
           </script>
         </section>
 
+        <section
+          class="slide s25-prime"
+          data-slide="25"
+          style="background: #ffffff !important"
+        >
+          <div
+            class="slide-container relative overflow-hidden font-bold select-none px-12 py-8 flex flex-col items-start"
+            style="
+              font-family: 'Zen Kaku Gothic New', sans-serif;
+              background-color: #ffffff !important;
+            "
+          >
+            <!-- Title -->
+            <h2
+              class="font-black mb-4"
+              style="color: #0068b7; font-size: 60px; line-height: 1.1"
+            >
+              プライムビジネス
+            </h2>
+
+            <!-- Subtitle Bar -->
+            <div
+              class="w-full text-white font-bold py-2 text-center mb-6 shadow-md relative mx-auto flex items-center justify-center"
+              style="width: 95%; background-color: #3c78d8; font-size: 32px"
+            >
+              プライムビジネスはどんな仕事？
+            </div>
+
+            <!-- List Content -->
+            <div class="w-full flex flex-col space-y-8 pl-4 relative">
+              <!-- Item 1 -->
+              <div
+                class="flex items-start text-black leading-snug"
+                style="font-size: 28px"
+              >
+                <span
+                  class="font-black mr-3"
+                  style="color: #0068b7; font-size: 40px; line-height: 1"
+                  >1.</span
+                >
+                <div>
+                  <span class="block">権利金を支払ったり多額の初期投資を</span>
+                  <span class="block">する必要はありません。</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div
+                class="flex items-start text-black leading-snug"
+                style="font-size: 28px"
+              >
+                <span
+                  class="font-black mr-3"
+                  style="color: #0068b7; font-size: 40px; line-height: 1"
+                  >2.</span
+                >
+                <div>
+                  <span class="block"
+                    >商品の仕入れや在庫を持つ必要がありません</span
+                  >
+                  <span class="block">（持ちたくても持てません）。</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div
+                class="flex items-start text-black leading-snug relative"
+                style="font-size: 28px"
+              >
+                <!-- Number 3 with Red Circle -->
+                <div class="relative mr-4 -ml-2">
+                  <span
+                    class="font-black relative z-10 px-2"
+                    style="color: #0068b7; font-size: 40px; line-height: 1"
+                    >3.</span
+                  >
+                  <svg
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                    style="width: 50px; height: 50px; overflow: visible"
+                    viewBox="0 0 100 100"
+                    style="overflow: visible"
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      fill="none"
+                      stroke="#ff4444"
+                      stroke-width="5"
+                    />
+                  </svg>
+                </div>
+
+                <div class="flex-1 z-10">
+                  <span class="block">自分や家族、全国の会員のために、</span>
+                  <div class="flex items-baseline mt-1 flex-wrap">
+                    <span>毎月定額の</span>
+                    <span
+                      class="border-[6px] border-[#ff4444] px-1 mx-2 leading-none pt-1"
+                      >会費を納めるだけ</span
+                    >
+                    <span>です。</span>
+                  </div>
+                </div>
+
+                <!-- Sales Box with X (Positioned Absolutely on the right) -->
+                <div
+                  class="absolute right-0 top-1/2 transform -translate-y-1/2 border-[6px] border-black px-8 py-2 bg-white mr-4"
+                >
+                  <span
+                    class="font-bold tracking-widest text-black"
+                    style="font-size: 60px"
+                    >営業</span
+                  >
+                  <!-- Huge Red X -->
+                  <svg
+                    class="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+                    style="z-index: 20"
+                  >
+                    <line
+                      x1="-10%"
+                      y1="0%"
+                      x2="110%"
+                      y2="100%"
+                      stroke="#ff0000"
+                      stroke-width="10"
+                      stroke-linecap="square"
+                    />
+                    <line
+                      x1="110%"
+                      y1="0%"
+                      x2="-10%"
+                      y2="100%"
+                      stroke="#ff0000"
+                      stroke-width="10"
+                      stroke-linecap="square"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div
+                class="flex items-start text-black leading-snug"
+                style="font-size: 28px"
+              >
+                <!-- Number 4 with Red Circle -->
+                <div class="relative mr-3 -ml-2">
+                  <span
+                    class="font-black relative z-10 px-2"
+                    style="color: #0068b7; font-size: 40px; line-height: 1"
+                    >4.</span
+                  >
+                  <svg
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                    style="width: 50px; height: 50px; overflow: visible"
+                    viewBox="0 0 100 100"
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#ff4444"
+                      stroke-width="6"
+                    />
+                  </svg>
+                </div>
+                <div>全国福利厚生共済会の良さを伝える仕事です。</div>
+              </div>
+            </div>
+
+            <!-- Footer Message -->
+            <div
+              class="w-full text-center font-bold mt-8"
+              style="font-size: 24px; color: #0068b7"
+            >
+              サービス構築や営業戦略は本部が担ってくれます。
+            </div>
+          </div>
+        </section>
+
         <!-- SLIDE 21 -->
-        <section class="slide s21" data-slide="24">
-          <div class="slide-container">
-            <!-- 背景分割 -->
-            <div class="absolute inset-0 flex">
-              <!-- 左側：安全 -->
-              <div
-                class="w-1/2 h-full bg-pattern-dots relative flex flex-col justify-center items-center border-r-4 border-white"
+        <section
+          class="slide s26-features"
+          data-slide="26"
+          style="background: #ffffff !important"
+        >
+          <div
+            class="slide-container relative overflow-hidden font-bold select-none px-12 py-8 flex flex-col items-center justify-start"
+            style="
+              font-family: 'Zen Kaku Gothic New', sans-serif;
+              background-color: #ffffff !important;
+            "
+          >
+            <!-- Header -->
+            <div
+              class="w-full flex justify-center items-center mb-8 gap-8"
+              style="font-size: 48px; line-height: 1.2"
+            >
+              <span class="font-black text-gray-800"
+                >プライムビジネスの特徴</span
               >
-                <!-- 背景装飾アイコン -->
-                <div
-                  class="absolute top-20 left-10 text-9xl text-blue-100 transform -rotate-12 opacity-50 z-0"
+              <span
+                class="font-black"
+                style="
+                  color: #ff0000 !important;
+                  opacity: 1 !important;
+                  text-shadow: none;
+                "
+                >安心・安全・シンプル</span
+              >
+            </div>
+
+            <!-- Grid Container -->
+            <div class="w-full grid grid-cols-2 gap-8 flex-1 px-8">
+              <!-- Card 1: Large Investment (Crossed Out) -->
+              <div
+                class="bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center p-6 relative overflow-hidden"
+                style="height: 250px"
+              >
+                <span
+                  class="font-black text-gray-800 z-10"
+                  style="font-size: 48px; min-width: 250px"
+                  >多額の投資</span
                 >
-                  <i class="fas fa-shield-alt"></i>
+                <div class="flex-1 flex justify-center items-center h-full">
+                  <img
+                    src="assets/money_stack.png"
+                    alt="Money Stack"
+                    class="object-contain h-full w-auto"
+                    style="max-height: 180px"
+                  />
                 </div>
+                <!-- Red Cross Overlay -->
+                <svg
+                  class="absolute inset-0 w-full h-full pointer-events-none z-20"
+                  style="opacity: 0.8"
+                >
+                  <line
+                    x1="10%"
+                    y1="10%"
+                    x2="90%"
+                    y2="90%"
+                    stroke="#cc0000"
+                    stroke-width="25"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="90%"
+                    y1="10%"
+                    x2="10%"
+                    y2="90%"
+                    stroke="#cc0000"
+                    stroke-width="25"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
 
-                <div class="z-10 text-center relative">
-                  <!-- アイコンサークル -->
-                  <div
-                    class="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-xl mb-10 mx-auto border-8 border-blue-100 anim-pop delay-200 relative"
-                  >
-                    <i
-                      class="fas fa-user-shield text-9xl text-blue-500 ml-4"
-                    ></i>
-                    <div
-                      class="absolute -top-4 -right-4 bg-yellow-400 text-white w-16 h-16 rounded-full flex items-center justify-center border-4 border-white shadow-md anim-pop delay-800"
-                    >
-                      <i class="fas fa-check text-3xl"></i>
-                    </div>
-                  </div>
+              <!-- Card 2: Stocking (Crossed Out) -->
+              <div
+                class="bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center p-6 relative overflow-hidden"
+                style="height: 250px"
+              >
+                <span
+                  class="font-black text-gray-800 z-10"
+                  style="font-size: 48px; min-width: 180px"
+                  >仕入れ</span
+                >
+                <div
+                  class="flex-1 flex justify-center items-center h-full pl-4"
+                >
+                  <img
+                    src="assets/cardboard_boxes.png"
+                    alt="Boxes"
+                    class="object-contain h-full w-auto"
+                    style="max-height: 200px"
+                  />
+                </div>
+                <!-- Red Cross Overlay -->
+                <svg
+                  class="absolute inset-0 w-full h-full pointer-events-none z-20"
+                  style="opacity: 0.8"
+                >
+                  <line
+                    x1="10%"
+                    y1="10%"
+                    x2="90%"
+                    y2="90%"
+                    stroke="#cc0000"
+                    stroke-width="25"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="90%"
+                    y1="10%"
+                    x2="10%"
+                    y2="90%"
+                    stroke="#cc0000"
+                    stroke-width="25"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
 
-                  <!-- テキスト -->
-                  <h2
-                    class="text-7xl font-black text-blue-600 mb-4 tracking-widest anim-slide-up delay-400 drop-shadow-sm"
-                  >
-                    安 全
-                  </h2>
-                  <p
-                    class="text-2xl text-blue-400 font-bold anim-fade delay-500 mb-8 tracking-widest"
-                  >
-                    SAFETY
-                  </p>
-
-                  <!-- 詳細ボックス -->
-                  <div
-                    class="bg-white rounded-2xl p-6 shadow-lg border-l-8 border-blue-500 w-96 mx-auto anim-slide-up delay-600 text-left transform hover:scale-105 transition-transform duration-300"
-                  >
-                    <div class="flex items-center mb-3">
-                      <div
-                        class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0"
-                      >
-                        <i class="fas fa-check text-blue-600"></i>
-                      </div>
-                      <p class="text-gray-600 font-bold text-lg">
-                        法律を遵守した運営
-                      </p>
-                    </div>
-                    <div class="flex items-center">
-                      <div
-                        class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0"
-                      >
-                        <i class="fas fa-check text-blue-600"></i>
-                      </div>
-                      <p class="text-gray-600 font-bold text-lg">
-                        リスクのない仕組み
-                      </p>
-                    </div>
-                  </div>
+              <!-- Card 3: Monthly Fee 4000 yen -->
+              <div
+                class="bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center p-6 relative overflow-hidden"
+                style="height: 250px"
+              >
+                <span
+                  class="font-black text-gray-800 z-10"
+                  style="font-size: 48px; min-width: 300px"
+                  >月額4,000円</span
+                >
+                <div class="flex-1 flex justify-center items-center h-full">
+                  <img
+                    src="assets/four_bills.png"
+                    alt="4 Bills"
+                    class="object-contain h-full w-auto"
+                    style="max-height: 180px"
+                  />
                 </div>
               </div>
 
-              <!-- 右側：かんたん -->
+              <!-- Card 4: Convey -->
               <div
-                class="w-1/2 h-full bg-pattern-stripes relative flex flex-col justify-center items-center"
+                class="bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center p-6 relative overflow-hidden"
+                style="height: 250px"
               >
-                <!-- 背景装飾アイコン -->
-                <div
-                  class="absolute bottom-20 right-10 text-9xl text-orange-100 transform rotate-12 opacity-50 z-0"
+                <span
+                  class="font-black text-gray-800 z-10"
+                  style="font-size: 48px; min-width: 180px"
+                  >伝える</span
                 >
-                  <i class="fas fa-mobile-alt"></i>
-                </div>
-
-                <div class="z-10 text-center relative">
-                  <!-- アイコンサークル -->
-                  <div
-                    class="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-xl mb-10 mx-auto border-8 border-orange-100 anim-pop delay-300 relative"
-                  >
-                    <i
-                      class="fas fa-hand-holding-heart text-9xl text-orange-500 mt-2"
-                    ></i>
-                    <div
-                      class="absolute -bottom-2 -left-2 bg-blue-400 text-white w-16 h-16 rounded-full flex items-center justify-center border-4 border-white shadow-md anim-pop delay-900"
-                    >
-                      <i class="fas fa-thumbs-up text-3xl"></i>
-                    </div>
-                  </div>
-
-                  <!-- テキスト -->
-                  <h2
-                    class="text-7xl font-black text-orange-500 mb-4 tracking-widest anim-slide-up delay-500 drop-shadow-sm"
-                  >
-                    かんたん
-                  </h2>
-                  <p
-                    class="text-2xl text-orange-400 font-bold anim-fade delay-600 mb-8 tracking-widest"
-                  >
-                    SIMPLE
-                  </p>
-
-                  <!-- 詳細ボックス -->
-                  <div
-                    class="bg-white rounded-2xl p-6 shadow-lg border-l-8 border-orange-500 w-96 mx-auto anim-slide-up delay-700 text-left transform hover:scale-105 transition-transform duration-300"
-                  >
-                    <div class="flex items-center mb-3">
-                      <div
-                        class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3 flex-shrink-0"
-                      >
-                        <i class="fas fa-check text-orange-600"></i>
-                      </div>
-                      <p class="text-gray-600 font-bold text-lg">
-                        スマホひとつで完了
-                      </p>
-                    </div>
-                    <div class="flex items-center">
-                      <div
-                        class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3 flex-shrink-0"
-                      >
-                        <i class="fas fa-check text-orange-600"></i>
-                      </div>
-                      <p class="text-gray-600 font-bold text-lg">
-                        誰でもできる再現性
-                      </p>
-                    </div>
-                  </div>
+                <div
+                  class="flex-1 flex justify-center items-center h-full pl-4"
+                >
+                  <img
+                    src="assets/women_talking.png"
+                    alt="Talking"
+                    class="object-contain h-full w-auto"
+                    style="max-height: 200px"
+                  />
                 </div>
               </div>
             </div>
 
-            <!-- 中央の接続要素 -->
+            <!-- Overlays -->
+            <!-- Step 1: Safety (安全) -->
             <div
-              class="absolute inset-0 flex justify-center items-center pointer-events-none z-20"
+              id="s26-safety"
+              class="fragment absolute inset-0 flex items-center justify-center pointer-events-none z-50"
+              data-fragment-index="1"
+            >
+              <span
+                class="font-black text-[#0068b7]"
+                style="
+                  font-size: 200px;
+                  color: #0068b7 !important;
+                  opacity: 1 !important;
+                  -webkit-text-stroke: 8px white;
+                  paint-order: stroke fill;
+                  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                "
+              >
+                安全
+              </span>
+            </div>
+
+            <!-- Step 2: Easy (かんたん) -->
+            <div
+              id="s26-easy"
+              class="fragment absolute inset-0 flex items-center justify-center pointer-events-none z-50"
+              data-fragment-index="2"
+              data-hide-target="#s26-safety"
+            >
+              <span
+                class="font-black text-[#0068b7]"
+                style="
+                  font-size: 200px;
+                  color: #0068b7 !important;
+                  opacity: 1 !important;
+                  -webkit-text-stroke: 8px white;
+                  paint-order: stroke fill;
+                  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                "
+              >
+                かんたん
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide s27" data-slide="27">
+          <div
+            class="slide-container bg-white relative overflow-hidden font-bold select-none px-16 py-12 flex flex-col items-start justify-between"
+          >
+            <!-- Header -->
+            <div class="w-full relative z-10 mt-8 ml-8">
+              <h2 class="text-6xl font-black text-gray-800 tracking-wider">
+                <span class="border-b-8 border-green-500 pb-2">理念③</span>
+              </h2>
+            </div>
+
+            <!-- Main Content Area (Centered) -->
+            <div
+              class="flex-1 w-full flex items-center justify-center gap-20 relative z-10"
+            >
+              <!-- Left: Economic Stability Circle (Animated & Huge) -->
+              <div
+                class="fragment fade-right relative w-80 h-80 flex-shrink-0"
+                data-fragment-index="1"
+              >
+                <!-- Pulse/Glow Effect -->
+                <div
+                  class="absolute inset-0 bg-green-400 rounded-full opacity-30 animate-pulse"
+                  style="filter: blur(20px)"
+                ></div>
+                <!-- 3D Gradient Sphere -->
+                <div
+                  class="relative w-full h-full rounded-full flex flex-col items-center justify-center text-white shadow-2xl transform transition-transform hover:scale-105 duration-500"
+                  style="
+                    background: radial-gradient(
+                      circle at 35% 35%,
+                      #86efac,
+                      #22c55e,
+                      #15803d
+                    );
+                    box-shadow: 0 40px 60px -10px rgba(34, 197, 94, 0.5),
+                      inset -20px -20px 40px rgba(0, 0, 0, 0.2);
+                  "
+                >
+                  <span
+                    class="text-5xl font-black drop-shadow-lg leading-tight text-center"
+                    style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)"
+                  >
+                    経済的<br />安定
+                  </span>
+                </div>
+              </div>
+
+              <!-- Right: Message Text (Clean & Large) -->
+              <div class="flex flex-col justify-center space-y-6">
+                <div class="text-5xl font-bold text-gray-700 leading-snug">
+                  <div>働いてお金に悩む人生から、</div>
+                  <div class="relative inline-block mt-4">
+                    <span>働かずに</span>
+                    <span class="text-gray-400 mx-2 text-4xl align-middle"
+                      >...いや、</span
+                    >
+                  </div>
+                  <div class="relative mt-2">
+                    <span class="z-10 relative">働けなくても</span>
+                    <span
+                      class="absolute bottom-1 left-0 w-full h-4 bg-red-200 -z-0 opacity-80 transform -skew-x-12"
+                    ></span>
+                  </div>
+                  <div class="mt-4">お金を得る人生に</div>
+                </div>
+
+                <div class="mt-6">
+                  <span
+                    class="text-7xl text-green-600 font-black tracking-widest border-b-4 border-green-600"
+                  >
+                    シフトしよう。
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom: Long Return Text (Animated) -->
+            <div
+              class="w-full text-center mb-4 h-32 flex items-center justify-center relative z-10"
             >
               <div
-                class="w-24 h-24 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-yellow-400 anim-pop delay-1000 transform hover:rotate-90 transition-transform duration-500"
+                class="fragment text-8xl font-black text-red-600 tracking-widest"
+                data-fragment-index="2"
+                style="
+                  text-shadow: 4px 4px 0px white,
+                    8px 8px 10px rgba(0, 0, 0, 0.15);
+                  font-family: 'Zen Kaku Gothic New', sans-serif;
+                "
               >
-                <i class="fas fa-plus text-5xl text-yellow-500"></i>
+                ロングリターン
               </div>
             </div>
 
-            <!-- ヘッダー -->
+            <!-- Elegant Background Decoration -->
             <div
-              class="absolute top-8 left-0 w-full text-center z-30 pointer-events-none"
-            >
-              <div
-                class="inline-block bg-white bg-opacity-90 px-12 py-3 rounded-full shadow-md border border-gray-100 anim-slide-up delay-100 backdrop-filter backdrop-blur-sm"
-              >
-                <h1 class="text-3xl font-bold text-gray-600 tracking-wider">
-                  <span class="text-blue-500">安心</span>して<span
-                    class="text-orange-500"
-                    >簡単</span
-                  >に始められる
-                </h1>
-              </div>
-            </div>
+              class="absolute top-0 right-0 w-[500px] h-[500px] bg-green-100 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-100 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob animation-delay-2000"
+            ></div>
           </div>
         </section>
 
         <!-- Support System Slide -->
-        <section class="slide s23" data-slide="25">
+        <section class="slide s23" data-slide="28">
           <div
-            class="slide-container bg-white relative overflow-hidden font-bold select-none p-12 flex flex-col items-center justify-center"
+            class="slide-container relative overflow-hidden font-bold select-none p-12 flex flex-col items-center justify-center"
+            style="
+              background: radial-gradient(
+                circle at center,
+                #f0f9ff 0%,
+                #e0f2fe 100%
+              );
+            "
           >
-            <div
-              class="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-bl-full opacity-50 z-0"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 w-64 h-64 bg-orange-100 rounded-tr-full opacity-50 z-0"
-            ></div>
-
-            <h1
-              class="text-6xl font-black text-[#0068b7] mb-16 relative z-10 tracking-widest drop-shadow-sm"
-            >
-              サポート体制
-              <span
-                class="block text-2xl text-gray-400 mt-2 font-bold tracking-normal"
-                >SUPPORT SYSTEM</span
+            <!-- Header -->
+            <div class="text-center mb-16 relative z-10">
+              <h1
+                class="text-6xl font-black text-gray-600 tracking-widest drop-shadow-sm"
               >
-            </h1>
+                サポート体制
+              </h1>
+              <div
+                class="text-xl font-bold text-gray-400 tracking-[0.5em] mt-2"
+              >
+                SUPPORT SYSTEM
+              </div>
+            </div>
 
-            <div class="flex justify-center gap-12 w-full px-8 relative z-10">
+            <!-- Cards Container -->
+            <div class="flex justify-center gap-10 w-full px-4 relative z-10">
               <!-- Card 1: Explanation -->
               <div
-                class="w-1/3 bg-white p-8 rounded-3xl border-4 border-[#0068b7] text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+                class="w-1/3 bg-white rounded-[2rem] shadow-xl flex flex-col items-center transform transition-transform hover:scale-105 duration-300 border-4 border-transparent hover:border-blue-200 fragment fade-up"
+                data-fragment-index="1"
+                style="box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1)"
               >
-                <div
-                  class="text-7xl mb-6 bg-blue-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto"
-                >
-                  📢
+                <div class="mb-4 relative">
+                  <img
+                    src="assets/seminar.png"
+                    alt="Seminar"
+                    class="object-contain w-full h-full drop-shadow-md"
+                  />
                 </div>
-                <h2 class="text-4xl font-black text-[#0068b7] mb-6">説明会</h2>
-                <p class="text-gray-600 font-bold text-xl leading-relaxed">
+                <h2
+                  class="text-3xl font-black text-gray-600 mb-4 tracking-widest"
+                >
+                  説明会
+                </h2>
+                <div
+                  class="text-gray-600 font-bold text-lg leading-relaxed text-center"
+                >
                   事業概要や魅力について<br />
                   <span class="text-orange-500 font-black">詳しく</span
                   >ご説明します。
-                </p>
+                </div>
               </div>
 
               <!-- Card 2: Zoom -->
               <div
-                class="w-1/3 bg-white p-8 rounded-3xl border-4 border-[#0068b7] text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+                class="w-1/3 bg-white rounded-[2rem] shadow-xl flex flex-col items-center transform transition-transform hover:scale-105 duration-300 border-4 border-transparent hover:border-blue-200 fragment fade-up"
+                data-fragment-index="2"
+                style="box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1)"
               >
-                <div
-                  class="text-7xl mb-6 bg-blue-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto"
-                >
-                  💻
+                <div class="mb-4 relative">
+                  <img
+                    src="assets/zoom.png"
+                    alt="Zoom"
+                    class="object-contain w-full h-full drop-shadow-md"
+                  />
                 </div>
-                <h2 class="text-4xl font-black text-[#0068b7] mb-6">Zoom</h2>
-                <p class="text-gray-600 font-bold text-xl leading-relaxed">
+                <h2
+                  class="text-3xl font-black text-gray-600 mb-4 tracking-widest"
+                >
+                  Zoom
+                </h2>
+                <div
+                  class="text-gray-600 font-bold text-lg leading-relaxed text-center"
+                >
                   オンラインで場所を選ばず<br />
                   <span class="text-orange-500 font-black">気軽</span
                   >に参加可能です。
-                </p>
+                </div>
               </div>
 
               <!-- Card 3: Training -->
               <div
-                class="w-1/3 bg-white p-8 rounded-3xl border-4 border-[#0068b7] text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+                class="w-1/3 bg-white rounded-[2rem] shadow-xl flex flex-col items-center transform transition-transform hover:scale-105 duration-300 border-4 border-transparent hover:border-blue-200 fragment fade-up"
+                data-fragment-index="3"
+                style="box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1)"
               >
-                <div
-                  class="text-7xl mb-6 bg-blue-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto"
-                >
-                  🎓
+                <div class="mb-4 relative">
+                  <img
+                    src="assets/practice.png"
+                    alt="Training"
+                    class="object-contain w-full h-full drop-shadow-md"
+                  />
                 </div>
-                <h2 class="text-4xl font-black text-[#0068b7] mb-6">研修会</h2>
-                <p class="text-gray-600 font-bold text-xl leading-relaxed">
+                <h2
+                  class="text-3xl font-black text-gray-600 mb-4 tracking-widest"
+                >
+                  研修会
+                </h2>
+                <div
+                  class="text-gray-600 font-bold text-lg leading-relaxed text-center"
+                >
                   スキルアップのための<br />
                   <span class="text-orange-500 font-black">充実</span
                   >した研修制度。
-                </p>
+                </div>
               </div>
             </div>
+
+            <!-- Background Blobs -->
+            <div
+              class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 pointer-events-none -translate-y-1/2 translate-x-1/2"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-100 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 pointer-events-none translate-y-1/2 -translate-x-1/2"
+            ></div>
           </div>
         </section>
 
         <!-- SLIDE 24: Membership Types -->
-        <section class="slide s24" data-slide="26">
+        <section class="slide s24" data-slide="29">
           <div
             class="slide-container bg-white flex flex-col items-center relative overflow-hidden"
           >
@@ -6059,7 +6478,7 @@
         </section>
 
         <!-- NEW SLIDE: Commission Types (S25) -->
-        <section class="slide s25" data-slide="27">
+        <section class="slide s25" data-slide="30">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col items-center justify-start pt-8 h-full relative overflow-hidden com"
@@ -6158,7 +6577,7 @@
         </section>
 
         <!-- SLIDE 25-2: Expand Commission Detail -->
-        <section class="slide s25-2" data-slide="28">
+        <section class="slide s25-2" data-slide="31">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden"
@@ -6311,7 +6730,7 @@
         </section>
 
         <!-- SLIDE 25-6: Direct Commission -->
-        <section class="slide s25-6" data-slide="29">
+        <section class="slide s25-6" data-slide="32">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden"
@@ -6515,7 +6934,7 @@
         </section>
 
         <!-- SLIDE 25-7: Assistant Commission -->
-        <section class="slide s25-7" data-slide="30">
+        <section class="slide s25-7" data-slide="33">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden"
@@ -6627,7 +7046,7 @@
         </section>
 
         <!-- SLIDE 26: Round Commission (Structure - Hybrid) -->
-        <section class="slide s26" data-slide="31">
+        <section class="slide s26" data-slide="34">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden"
@@ -7252,7 +7671,7 @@
         </section>
 
         <!-- SLIDE 29.5: Round Commission Calculation -->
-        <section class="slide s29-5" data-slide="32">
+        <section class="slide s29-5" data-slide="35">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex flex-col h-full w-full relative overflow-hidden"
@@ -7415,7 +7834,7 @@
         </section>
 
         <!-- SLIDE 30.5: Round Commission Calculation -->
-        <section class="slide s30-5" data-slide="33">
+        <section class="slide s30-5" data-slide="36">
           <div class="slide-container fallback">
             <div class="slide-container bg-grid">
               <!-- ヘッダー -->
@@ -7634,7 +8053,7 @@
         </section>
 
         <!-- SLIDE 30.7: Round Commission Calculation -->
-        <section class="slide s30-7" data-slide="34">
+        <section class="slide s30-7" data-slide="37">
           <div class="slide-container fallback">
             <div class="slide-container bg-grid">
               <div style="height: 100%">
@@ -7913,7 +8332,7 @@
         </section>
 
         <!-- SLIDE 31 -->
-        <section class="slide s31" data-slide="35">
+        <section class="slide s31" data-slide="38">
           <div class="slide-container fallback">
             <div
               class="slide-container bg-white flex items-center justify-center relative overflow-hidden"
@@ -8781,7 +9200,7 @@
         </section>
 
         <!-- SLIDE 26 -->
-        <section class="slide s26" data-slide="36">
+        <section class="slide s26" data-slide="39">
           <div class="slide-container fallback">
             <div
               class="slide-container p-16 relative flex flex-col justify-between overflow-hidden"
@@ -8846,7 +9265,7 @@
         </section>
 
         <!-- SLIDE 28 -->
-        <section class="slide s28" data-slide="37">
+        <section class="slide s28" data-slide="40">
           <div class="slide-container fallback">
             <div class="slide-container bg-grid-dots">
               <!-- ヘッダー -->
@@ -9016,7 +9435,7 @@
         </section>
 
         <!-- SLIDE 29 -->
-        <section class="slide s29" data-slide="38">
+        <section class="slide s29" data-slide="41">
           <div class="slide-container fallback">
             <div class="slide-container bg-grid">
               <!-- ヘッダー -->
@@ -9572,7 +9991,7 @@
         </section>
 
         <!-- SLIDE 30 -->
-        <section class="slide s30" data-slide="39">
+        <section class="slide s30" data-slide="42">
           <div class="slide-container fallback">
             <div class="slide-container bg-dot-pattern">
               <!-- ヘッダー -->
@@ -9903,7 +10322,7 @@
         </section>
 
         <!-- SLIDE 31 -->
-        <section class="slide s31" data-slide="40">
+        <section class="slide s31" data-slide="43">
           <div
             class="slide-container flex items-center justify-center bg-white"
           >
@@ -9916,7 +10335,7 @@
         </section>
 
         <!-- SLIDE 27 -->
-        <section class="slide s27" data-slide="41">
+        <section class="slide s27" data-slide="44">
           <div
             class="slide-container flex items-center justify-center bg-white"
           >
@@ -9929,7 +10348,7 @@
         </section>
 
         <!-- SLIDE 32 -->
-        <section class="slide s32" data-slide="42">
+        <section class="slide s32" data-slide="45">
           <div
             class="slide-container relative overflow-hidden bg-gradient-to-b from-white to-gray-100"
           >
@@ -10187,7 +10606,7 @@
         </section>
 
         <!-- SLIDE 33: Lifestyle & Freedom -->
-        <section class="slide s41-lifestyle" data-slide="43">
+        <section class="slide s41-lifestyle" data-slide="46">
           <div
             class="slide-container relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-pink-50"
           >
@@ -10514,7 +10933,7 @@
         </section>
 
         <!-- SLIDE 33 -->
-        <section class="slide s33" data-slide="44">
+        <section class="slide s33" data-slide="47">
           <div class="slide-container">
             <!-- 背景装飾 -->
             <svg
@@ -10662,7 +11081,7 @@
         </section>
 
         <!-- SLIDE 34 -->
-        <section class="slide s34" data-slide="45">
+        <section class="slide s34" data-slide="48">
           <div class="slide-container">
             <!-- 背景装飾 -->
             <div
@@ -10771,7 +11190,7 @@
         </section>
 
         <!-- SLIDE 35 -->
-        <section class="slide s35" data-slide="46">
+        <section class="slide s35" data-slide="49">
           <div class="slide-container fallback">
             <div class="slide-container px-12 py-8">
               <!-- ヘッダー -->
@@ -10970,6 +11389,7 @@
       </div>
       <!-- deck-container -->
     </div>
+
     <!-- slides-wrapper -->
 
     <!-- Navigation Controls -->

@@ -328,7 +328,11 @@ function prepareFragments(slideElement, restore = false) {
     state.fragments.flat().forEach((el) => {
       gsap.set(el, { autoAlpha: 0 }); // autoAlpha handles opacity + visibility
       // Optional: Custom initial state override
-      if (el.classList.contains("no-anim")) return;
+      if (
+        el.classList.contains("no-anim") ||
+        el.classList.contains("spin-reveal")
+      )
+        return;
       gsap.set(el, { y: 20, scale: 0.95 });
     });
   }
@@ -346,6 +350,29 @@ function showNextFragment() {
   );
 
   group.forEach((el) => {
+    // Feature: Hide Target (Swap effect) - Run this BEFORE animation returns
+    if (el.dataset.hideTarget) {
+      const target = document.querySelector(el.dataset.hideTarget);
+      if (target) gsap.to(target, { autoAlpha: 0, duration: 0.3 });
+    }
+
+    // Custom Animation: Spin Reveal (Kurukuru effect)
+    if (el.classList.contains("spin-reveal")) {
+      gsap.fromTo(
+        el,
+        { autoAlpha: 0, rotation: -720, scale: 0 },
+        {
+          autoAlpha: 1,
+          rotation: 0,
+          scale: 1,
+          duration: 2.0,
+          ease: "elastic.out(1, 0.75)",
+        }
+      );
+      el.classList.add("visible");
+      return;
+    }
+
     // Check for custom animation class
     // Default Animation: Dramatic Reveal
     if (!el.classList.contains("no-anim")) {
@@ -419,7 +446,7 @@ function hideCurrentFragment() {
 function handleResize() {
   const baseWidth = 1280;
   const baseHeight = 720;
-  
+
   // Calculate scale to fit the screen while maintaining aspect ratio
   // Use a slightly smaller factor (0.95) to ensure some padding
   const scale = Math.min(
@@ -440,12 +467,12 @@ class Particle {
   constructor(w, h, color) {
     this.x = Math.random() * w;
     this.y = Math.random() * h;
-    
+
     // Speed up: approx 3x previous speed range
-    this.vx = (Math.random() - 0.5) * 1.5; 
+    this.vx = (Math.random() - 0.5) * 1.5;
     this.vy = (Math.random() - 0.5) * 1.5;
-    
-    this.baseRadius = Math.random() * 250 + 150; 
+
+    this.baseRadius = Math.random() * 250 + 150;
     this.radius = this.baseRadius;
     this.color = color;
     this.angle = Math.random() * Math.PI * 2;
@@ -467,16 +494,32 @@ class Particle {
 
   draw(ctx) {
     ctx.beginPath();
-    
+
     // Pulsate radius
     const r = this.baseRadius + Math.sin(this.angle) * 60;
-    
-    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, Math.max(0, r));
-    
+
+    const gradient = ctx.createRadialGradient(
+      this.x,
+      this.y,
+      0,
+      this.x,
+      this.y,
+      Math.max(0, r)
+    );
+
     // Increase visibility
-    gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.5)`);
-    gradient.addColorStop(0.4, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.15)`);
-    gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
+    gradient.addColorStop(
+      0,
+      `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.5)`
+    );
+    gradient.addColorStop(
+      0.4,
+      `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.15)`
+    );
+    gradient.addColorStop(
+      1,
+      `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`
+    );
 
     ctx.fillStyle = gradient;
     ctx.arc(this.x, this.y, Math.max(0, r), 0, Math.PI * 2);
@@ -488,7 +531,7 @@ function initParticleBackground() {
   const canvas = document.getElementById("bg-canvas");
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
   let width = window.innerWidth;
   let height = window.innerHeight;
   let animationFrameId = 0;
@@ -496,29 +539,29 @@ function initParticleBackground() {
 
   // Settings: Deep Blue, Violet, Charcoal, Gold accents
   const colors = [
-    { r: 15, g: 23, b: 42 },   // Slate 900 (Base Dark)
-    { r: 49, g: 46, b: 129 },  // Indigo 900 (Deep Blue)
+    { r: 15, g: 23, b: 42 }, // Slate 900 (Base Dark)
+    { r: 49, g: 46, b: 129 }, // Indigo 900 (Deep Blue)
     { r: 107, g: 33, b: 168 }, // Purple 800 (Accent 1)
-    { r: 87, g: 83, b: 78 },   // Stone 600 (Muted Grey)
-    { r: 217, g: 119, b: 6 },  // Amber 600 (Gold Accent)
+    { r: 87, g: 83, b: 78 }, // Stone 600 (Muted Grey)
+    { r: 217, g: 119, b: 6 }, // Amber 600 (Gold Accent)
   ];
 
   function initCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
-    
+
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
-    
+
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
   }
 
   function createParticles() {
     particles = [];
-    const particleCount = 18; 
+    const particleCount = 18;
 
     for (let i = 0; i < particleCount; i++) {
       const color = colors[Math.floor(Math.random() * colors.length)];
@@ -528,14 +571,14 @@ function initParticleBackground() {
 
   function animate() {
     // Clear background with trail effect
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = 'rgba(2, 6, 23, 0.1)'; 
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "rgba(2, 6, 23, 0.1)";
     ctx.fillRect(0, 0, width, height);
 
     // Additive blending for glow
-    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalCompositeOperation = "lighter";
 
-    particles.forEach(p => {
+    particles.forEach((p) => {
       p.update(width, height);
       p.draw(ctx);
     });
@@ -549,9 +592,9 @@ function initParticleBackground() {
   animate();
 
   // Resize
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     initCanvas();
-    createParticles(); 
+    createParticles();
   });
 }
 
