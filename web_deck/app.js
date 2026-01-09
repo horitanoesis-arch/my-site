@@ -1292,3 +1292,18 @@ function initParticleBackground() {
     });
   };
 })();
+
+// CORTEX-FIX: Dynamic alias for Slide 38 (s31) animation trigger
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const s31Index = slides.findIndex((el) => el.classList.contains("s31"));
+  if (s31Index !== -1) {
+    const realIndex = s31Index + 1;
+    if (typeof window.trigger33_Init === "function") {
+      window[`trigger${realIndex}_Init`] = window.trigger33_Init;
+      console.log(
+        `[CORTEX] Aliased trigger${realIndex}_Init to trigger33_Init`
+      );
+    }
+  }
+});
