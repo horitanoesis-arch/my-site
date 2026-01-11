@@ -1,43 +1,36 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Slide Deck</title>
-    <!-- Tailwind -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Three.js -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Tailwind (local) -->
+    <link rel="stylesheet" href="vendor/tailwind.min.css" />
+
+    <!-- Google Fonts (local) -->
+    <link rel="stylesheet" href="vendor/gfonts/fonts.css" />
+
+    <!-- Font Awesome (local) -->
+    <link rel="stylesheet" href="vendor/fa/css/all.min.css" />
+    <link rel="stylesheet" href="vendor/fa/css/v4-shims.min.css" />
+
+    <!-- Three.js (local) -->
+    <script src="vendor/three.min.js"></script>
+
+    <!-- Chart.js (local) -->
+    <script src="vendor/chart.js"></script>
 
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <canvas id="bg-canvas"></canvas>
 
     <!-- Noise Texture -->
     <div
       class="absolute top-0 left-0 w-full h-full z-0 opacity-[0.07] pointer-events-none"
-      style="
-        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-        position: fixed;
-      "
+      style="background-image: url('assets/noise.svg'); position: fixed"
     ></div>
 
     <div id="deck" class="deck-container">
@@ -4262,7 +4255,7 @@
                     alt="Prime Club"
                     class="object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-300 mr-8"
                     style="height: 100%"
-                    onerror="this.src='https://placehold.co/300x200?text=P-Club'"
+                    onerror="this.src='assets/placeholder_300x200.svg'"
                   />
 
                   <!-- Title (Right) -->
@@ -4304,7 +4297,7 @@
                     alt="Kyousaikai"
                     class="object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-300 mr-8"
                     style="height: 100%"
-                    onerror="this.src='https://placehold.co/300x200?text=K-Club'"
+                    onerror="this.src='assets/zenkousai.png'"
                   />
 
                   <!-- Title (Right) -->
@@ -6410,7 +6403,7 @@
                     src="assets/kclub.png"
                     class="h-16 object-contain mx-1 anim-bounce"
                     alt="K"
-                    onerror="this.src='https://placehold.co/100x100?text=K'"
+                    onerror="this.src='assets/placeholder_100x100.svg'"
                   />
 
                   <!-- Price -->
@@ -6510,7 +6503,7 @@
                     class="h-16 object-contain mx-1 anim-bounce"
                     alt="P"
                     style="animation-delay: 0.2s"
-                    onerror="this.src='https://placehold.co/100x100?text=P'"
+                    onerror="this.src='assets/zenkousai.png'"
                   />
 
                   <!-- Price -->
@@ -10446,7 +10439,7 @@
             </div>
 
             <!-- Three.js Library & Custom Animation Script -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="vendor/three.min.js"></script>
             <script>
               (function () {
                 const container = document.getElementById("s40-background");
@@ -12024,10 +12017,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="vendor/three.min.js"></script>
+    <script src="vendor/gsap.min.js"></script>
+    <script src="vendor/split-type.js"></script>
+    <script src="vendor/chart.js"></script>
     <script src="app.js?v=2"></script>
   </body>
 </html>
