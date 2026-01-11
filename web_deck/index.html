@@ -2128,6 +2128,43 @@
                 align-items: center;
                 gap: 1rem;
               }
+
+              /* Slide 28 Red Bar Fluctuation */
+              @keyframes fluctuateHeight1 {
+                0%,
+                100% {
+                  height: 60%;
+                }
+                50% {
+                  height: 70%;
+                }
+              }
+              @keyframes fluctuateHeight2 {
+                0%,
+                100% {
+                  height: 80%;
+                }
+                50% {
+                  height: 90%;
+                }
+              }
+              .anim-fluctuate-1 {
+                animation: fluctuateHeight1 3s ease-in-out infinite;
+                position: relative; /* For absolute positioning of '?' */
+              }
+              .anim-fluctuate-2 {
+                animation: fluctuateHeight2 4s ease-in-out infinite;
+                position: relative; /* For absolute positioning of '?' */
+              }
+              .bar-question-mark {
+                position: absolute;
+                top: -3rem; /* Position above the bar */
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #dc2626; /* match red-600 */
+              }
             </style>
 
             <div class="container">
@@ -2805,9 +2842,9 @@
         </section>
 
         <!-- SLIDE 10 -->
-        <section class="slide s10" data-slide="10">
+        <!-- <section class="slide s10" data-slide="10">
           <div class="slide-container">
-            <!-- 背景装飾 -->
+            
             <svg
               class="absolute top-0 right-0 w-full h-full z-0"
               viewBox="0 0 1280 720"
@@ -2833,7 +2870,7 @@
               ></path>
             </svg>
 
-            <!-- ヘッダー -->
+      
             <div class="z-10 w-full pt-10 px-16 mb-4">
               <div class="flex items-center">
                 <div class="w-2 h-12 bg-red-500 mr-4 rounded-full"></div>
@@ -2848,12 +2885,12 @@
               </p>
             </div>
 
-            <!-- コンテンツエリア -->
+           
             <div class="z-10 flex-1 px-16 py-4 flex flex-col justify-center">
               <div class="grid grid-cols-2 gap-x-12 gap-y-6">
-                <!-- 左カラム -->
+             
                 <div class="space-y-6">
-                  <!-- Item 1 -->
+              
                   <div
                     class="anim-item delay-100 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-red-400 transform transition-transform hover:scale-102"
                   >
@@ -2868,7 +2905,6 @@
                     </div>
                   </div>
 
-                  <!-- Item 2 -->
                   <div
                     class="anim-item delay-200 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-orange-400 transform transition-transform hover:scale-102"
                   >
@@ -2883,7 +2919,7 @@
                     </div>
                   </div>
 
-                  <!-- Item 3 -->
+ 
                   <div
                     class="anim-item delay-300 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-yellow-400 transform transition-transform hover:scale-102"
                   >
@@ -2899,9 +2935,9 @@
                   </div>
                 </div>
 
-                <!-- 右カラム -->
+              
                 <div class="space-y-6">
-                  <!-- Item 4 -->
+                 
                   <div
                     class="anim-item delay-400 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-blue-400 transform transition-transform hover:scale-102"
                   >
@@ -2916,7 +2952,6 @@
                     </div>
                   </div>
 
-                  <!-- Item 5 -->
                   <div
                     class="anim-item delay-500 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-indigo-400 transform transition-transform hover:scale-102"
                   >
@@ -2931,7 +2966,7 @@
                     </div>
                   </div>
 
-                  <!-- Item 6 -->
+          
                   <div
                     class="anim-item delay-600 flex items-center bg-white p-5 rounded-2xl card-shadow border-l-8 border-purple-400 transform transition-transform hover:scale-102"
                   >
@@ -2946,12 +2981,12 @@
                 </div>
               </div>
 
-              <!-- 最後の強調項目 -->
+          
               <div class="anim-pop delay-700 mt-10 mx-auto w-full max-w-4xl">
                 <div
                   class="bg-gray-800 rounded-3xl p-6 shadow-2xl flex items-center justify-between relative overflow-hidden"
                 >
-                  <!-- 背景の光彩効果 -->
+  
                   <div
                     class="absolute top-0 right-0 w-64 h-64 bg-gray-600 opacity-20 rounded-full transform translate-x-1/3 -translate-y-1/3"
                   ></div>
@@ -2980,6 +3015,18 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section> -->
+
+        <section class="slide s17" data-slide="10">
+          <div class="slide-container fallback" style="padding: 1rem">
+            <div class="flex items-center justify-center w-full h-full">
+              <img
+                src="./assets/slide10.png"
+                class="w-full h-full object-contain"
+                alt="Kixyousai"
+              />
             </div>
           </div>
         </section>
@@ -3021,7 +3068,116 @@
         </section>
 
         <section class="slide s17" data-slide="14">
-          <div class="slide-container fallback" style="padding: 1rem"></div>
+          <div class="slide-container fallback" style="padding: 1rem">
+            <div class="flex items-center w-full h-full relative">
+              <!-- Left: Initial Image (40%) -->
+              <div
+                class="flex items-center justify-center h-full"
+                style="width: 40%"
+              >
+                <img
+                  src="./assets/slide14-1.png"
+                  class="object-contain max-h-full max-w-full"
+                  alt="Slide 14 Part 1"
+                />
+              </div>
+
+              <!-- Right: Reveal Image (60%) -->
+              <div
+                class="fragment flex items-center justify-center h-full"
+                style="width: 60%"
+                data-fragment-index="1"
+              >
+                <img
+                  src="./assets/slide14-2.png"
+                  class="object-contain max-h-full max-w-full"
+                  alt="Slide 14 Part 2"
+                />
+              </div>
+
+              <!-- Sequential Full Screen Overlays (3-9) -->
+              <!-- Slide 14-3 -->
+              <div
+                class="fragment absolute inset-0 z-20 flex items-center justify-center bg-white"
+                data-fragment-index="2"
+              >
+                <img
+                  src="./assets/slide14-3.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 3"
+                />
+              </div>
+              <!-- Slide 14-4 -->
+              <div
+                class="fragment absolute inset-0 z-30 flex items-center justify-center bg-white"
+                data-fragment-index="3"
+              >
+                <img
+                  src="./assets/slide14-4.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 4"
+                />
+              </div>
+              <!-- Slide 14-5 -->
+              <div
+                class="fragment absolute inset-0 z-40 flex items-center justify-center bg-white"
+                data-fragment-index="4"
+              >
+                <img
+                  src="./assets/slide14-5.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 5"
+                />
+              </div>
+              <!-- Slide 14-6 -->
+              <div
+                class="fragment absolute inset-0 z-50 flex items-center justify-center bg-white"
+                data-fragment-index="5"
+              >
+                <img
+                  src="./assets/slide14-6.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 6"
+                />
+              </div>
+              <!-- Slide 14-7 -->
+              <div
+                class="fragment absolute inset-0 z-50 flex items-center justify-center bg-white"
+                style="z-index: 60"
+                data-fragment-index="6"
+              >
+                <img
+                  src="./assets/slide14-7.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 7"
+                />
+              </div>
+              <!-- Slide 14-8 -->
+              <div
+                class="fragment absolute inset-0 z-50 flex items-center justify-center bg-white"
+                style="z-index: 70"
+                data-fragment-index="7"
+              >
+                <img
+                  src="./assets/slide14-8.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 8"
+                />
+              </div>
+              <!-- Slide 14-9 -->
+              <div
+                class="fragment absolute inset-0 z-50 flex items-center justify-center bg-white"
+                style="z-index: 80"
+                data-fragment-index="8"
+              >
+                <img
+                  src="./assets/slide14-9.png"
+                  class="w-full h-full object-contain"
+                  alt="Slide 14 Part 9"
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="slide s17" data-slide="15">
@@ -3719,11 +3875,6 @@
                     <span class="text-blue-600">非日常の体験</span
                     >が、極上の休息を約束します。
                   </p>
-                  <div
-                    class="absolute bottom-4 right-4 text-6xl text-gray-100 font-black z-0 pointer-events-none"
-                  >
-                    01
-                  </div>
                 </div>
               </div>
 
@@ -3756,11 +3907,6 @@
                     <span class="text-green-600">生活の基盤</span
                     >を会社が力強くサポート。
                   </p>
-                  <div
-                    class="absolute bottom-4 right-4 text-6xl text-gray-100 font-black z-0 pointer-events-none"
-                  >
-                    02
-                  </div>
                 </div>
               </div>
 
@@ -3793,11 +3939,6 @@
                     <span class="text-yellow-600">食の充実</span
                     >が、心身の健康を作ります。
                   </p>
-                  <div
-                    class="absolute bottom-4 right-4 text-6xl text-gray-100 font-black z-0 pointer-events-none"
-                  >
-                    03
-                  </div>
                 </div>
               </div>
             </div>
@@ -3844,7 +3985,7 @@
                   日本企業の<br /><span class="text-blue-600">99.7%</span
                   >が<br />中小企業
                 </h2>
-                <p class="text-gray-400 font-bold mt-4 text-xl">
+                <p class="text-gray-800 font-bold mt-4 text-xl">
                   圧倒的な市場シェア
                 </p>
               </div>
@@ -4545,7 +4686,27 @@
         <!-- SLIDE 17 -->
         <section class="slide s17" data-slide="28">
           <div class="slide-container fallback bg-white">
-            <div class="flex flex-col h-full px-16 pt-12 pb-8 relative">
+            <div
+              class="flex flex-col h-full px-16 pt-12 pb-8 relative"
+              style="background: #fff"
+            >
+              <!-- Top-Left Overlay (Corrected Position) -->
+              <img
+                src="./assets/slide28-2.png"
+                class="absolute top-0 left-0 z-10"
+                style="width: 30%"
+                alt="Overlay"
+              />
+
+              <!-- Step 3 Overlay (Top-Right) -->
+              <img
+                src="./assets/slide28-3.png"
+                class="absolute top-0 right-0 z-20 fragment"
+                style="width: 40%"
+                data-fragment-index="3"
+                alt="Overlay 3"
+              />
+
               <!-- Main Graph Area -->
               <div class="flex-1 flex items-end gap-8 pb-4">
                 <!-- Left: Image Graph -->
@@ -4568,16 +4729,20 @@
                   class="flex gap-16 items-end h-full"
                   style="padding-bottom: 2px"
                 >
-                  <!-- 2025 Bar -->
+                  <!-- 2025 Bar (Step 1) -->
                   <div
-                    class="w-20 bg-red-600 shadow-lg"
-                    style="height: 65%"
-                  ></div>
-                  <!-- 2030 Bar -->
+                    class="w-20 bg-red-600 shadow-lg anim-fluctuate-1 fragment"
+                    data-fragment-index="1"
+                  >
+                    <div class="bar-question-mark">?</div>
+                  </div>
+                  <!-- 2030 Bar (Step 2) -->
                   <div
-                    class="w-20 bg-red-600 shadow-lg"
-                    style="height: 85%"
-                  ></div>
+                    class="w-20 bg-red-600 shadow-lg anim-fluctuate-2 fragment"
+                    data-fragment-index="2"
+                  >
+                    <div class="bar-question-mark">?</div>
+                  </div>
                 </div>
               </div>
 
@@ -4601,7 +4766,7 @@
                   class="flex w-full items-center text-black font-bold text-2xl relative gap-8"
                 >
                   <!-- Left Label -->
-                  <div class="text-center" style="width: 60%">
+                  <div class="text-center shrink-0" style="width: 60%">
                     <span
                       class="bg-yellow-100 text-yellow-600 px-4 py-1 rounded-full text-lg border-2 border-yellow-300 shadow-sm"
                     >
@@ -4610,9 +4775,21 @@
                   </div>
 
                   <!-- Right Labels (Aligned with bars) -->
-                  <div class="flex gap-16">
-                    <span class="w-20 text-center text-3xl">2025</span>
-                    <span class="w-20 text-center text-3xl">2030</span>
+                  <div class="flex gap-16 pl-4">
+                    <!-- 2025 Label (Step 1) -->
+                    <div
+                      class="w-20 text-center text-3xl fragment"
+                      data-fragment-index="1"
+                    >
+                      2025
+                    </div>
+                    <!-- 2030 Label (Step 2) -->
+                    <div
+                      class="w-20 text-center text-3xl fragment"
+                      data-fragment-index="2"
+                    >
+                      2030
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4665,7 +4842,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       お祝い金
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       人生の節目を祝福
                     </p>
                   </div>
@@ -4685,7 +4862,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       葬儀・お見舞金
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       万が一の時も安心
                     </p>
                   </div>
@@ -4705,7 +4882,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       婚活・ブライダル
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       素敵な出会いと挙式
                     </p>
                   </div>
@@ -4725,7 +4902,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       くらしの相談
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       専門家への相談窓口
                     </p>
                   </div>
@@ -4745,7 +4922,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       医療・介護福祉
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       健康と介護をサポート
                     </p>
                   </div>
@@ -4765,7 +4942,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       リサイクル
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       不用品を有効活用
                     </p>
                   </div>
@@ -4783,17 +4960,18 @@
                       ></i>
                     </div>
                     <h3 class="font-bold text-gray-700 text-lg mb-1">保 険</h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       各種保険の見直し
                     </p>
                   </div>
 
-                  <!-- 8. くらしのサポート -->
+                  <!-- 8. くらしのサポート (Improved Visibility) -->
                   <div
                     class="service-card bg-white rounded-xl shadow-md p-4 flex flex-col items-center justify-center border-b-4 border-orange-400 anim-pop delay-800"
                   >
                     <div
-                      class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 text-orange-500 text-3xl"
+                      class="w-16 h-16 rounded-full flex items-center justify-center mb-3 text-3xl"
+                      style="background-color: #fed7aa; color: #c2410c"
                     >
                       <i
                         class="fas fa-home anim-float"
@@ -4803,7 +4981,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       くらしのサポート
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       日常生活の困りごと
                     </p>
                   </div>
@@ -4823,17 +5001,18 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       ショップ
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       会員限定価格でお買い物
                     </p>
                   </div>
 
-                  <!-- 10. カーライフ -->
+                  <!-- 10. カーライフ (Improved Visibility) -->
                   <div
                     class="service-card bg-white rounded-xl shadow-md p-4 flex flex-col items-center justify-center border-b-4 border-teal-400 anim-pop delay-1000"
                   >
                     <div
-                      class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-3 text-teal-500 text-3xl"
+                      class="w-16 h-16 rounded-full flex items-center justify-center mb-3 text-3xl"
+                      style="background-color: #99f6e4; color: #0f766e"
                     >
                       <i
                         class="fas fa-car anim-float"
@@ -4843,17 +5022,18 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       カーライフ
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       車検や購入がお得に
                     </p>
                   </div>
 
-                  <!-- 11. トラベル -->
+                  <!-- 11. トラベル (Improved Visibility) -->
                   <div
                     class="service-card bg-white rounded-xl shadow-md p-4 flex flex-col items-center justify-center border-b-4 border-cyan-400 anim-pop delay-1100 col-span-2"
                   >
                     <div
-                      class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mb-3 text-cyan-500 text-3xl"
+                      class="w-16 h-16 rounded-full flex items-center justify-center mb-3 text-3xl"
+                      style="background-color: #a5f3fc; color: #0e7490"
                     >
                       <i
                         class="fas fa-plane anim-float"
@@ -4863,7 +5043,7 @@
                     <h3 class="font-bold text-gray-700 text-lg mb-1">
                       トラベル
                     </h3>
-                    <p class="text-xs text-gray-400 text-center">
+                    <p class="text-xs text-gray-800 text-center">
                       旅行や宿泊施設の割引
                     </p>
                   </div>
@@ -5270,10 +5450,20 @@
                     d="M277.95 875.455V890H274.874V878.374H274.789L271.458 880.462V877.734L275.059 875.455H277.95ZM286.89 890.32C285.668 890.315 284.617 890.014 283.737 889.418C282.861 888.821 282.186 887.957 281.712 886.825C281.244 885.694 281.012 884.332 281.016 882.741C281.016 881.155 281.251 879.804 281.719 878.686C282.193 877.569 282.868 876.719 283.744 876.136C284.624 875.549 285.673 875.256 286.89 875.256C288.107 875.256 289.153 875.549 290.029 876.136C290.91 876.723 291.587 877.576 292.06 878.693C292.534 879.806 292.768 881.155 292.763 882.741C292.763 884.337 292.527 885.701 292.053 886.832C291.585 887.964 290.912 888.828 290.036 889.425C289.16 890.021 288.112 890.32 286.89 890.32ZM286.89 887.77C287.723 887.77 288.388 887.351 288.886 886.513C289.383 885.675 289.629 884.418 289.624 882.741C289.624 881.638 289.511 880.72 289.283 879.986C289.061 879.252 288.744 878.7 288.332 878.331C287.924 877.962 287.444 877.777 286.89 877.777C286.061 877.777 285.398 878.191 284.901 879.02C284.404 879.848 284.153 881.089 284.148 882.741C284.148 883.859 284.26 884.792 284.482 885.54C284.71 886.283 285.029 886.842 285.441 887.216C285.853 887.585 286.336 887.77 286.89 887.77ZM298.517 872.92L300.977 873.56C300.617 874.547 300.191 875.513 299.697 876.46C299.217 877.407 298.691 878.287 298.117 879.1C297.557 879.9 296.977 880.6 296.377 881.2C296.217 881.067 296.011 880.9 295.757 880.7C295.504 880.487 295.244 880.287 294.977 880.1C294.724 879.913 294.497 879.76 294.297 879.64C294.911 879.12 295.484 878.507 296.017 877.8C296.551 877.08 297.031 876.307 297.457 875.48C297.884 874.64 298.237 873.787 298.517 872.92ZM298.957 875.2H311.677V877.52H297.797L298.957 875.2ZM297.537 879.94H311.197V882.18H299.937V886.38H297.537V879.94ZM294.357 885.2H312.757V887.5H294.357V885.2ZM303.417 876.4H305.897V891.8H303.417V876.4Z"
                     fill="white"
                   />
-                  <path
-                    d="M283 795.625H402.531V683.125H283V795.625Z"
+                  <text
+                    x="343"
+                    y="740"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    font-size="100"
                     fill="#1E1E1E"
-                  />
+                    style="
+                      font-family: 'Segoe UI Emoji', 'Apple Color Emoji',
+                        'Noto Color Emoji', sans-serif;
+                    "
+                  >
+                    😟
+                  </text>
                 </g>
                 <g
                   id="s23-step4"
@@ -5347,10 +5537,20 @@
                       fill="url(#pattern0_13_128)"
                     />
                   </mask>
-                  <path
-                    d="M795 627.625H914.531V515.125H795V627.625Z"
+                  <text
+                    x="855"
+                    y="571"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    font-size="100"
                     fill="#1E1E1E"
-                  />
+                    style="
+                      font-family: 'Segoe UI Emoji', 'Apple Color Emoji',
+                        'Noto Color Emoji', sans-serif;
+                    "
+                  >
+                    🫤
+                  </text>
                 </g>
                 <g
                   id="s23-step6"
@@ -5400,10 +5600,20 @@
                   id="s23-step8"
                   class="opacity-0 transition-opacity duration-1000"
                 >
-                  <path
-                    d="M1199 443.625H1318.53V331.125H1199V443.625Z"
+                  <text
+                    x="1259"
+                    y="387"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    font-size="100"
                     fill="#1E1E1E"
-                  />
+                    style="
+                      font-family: 'Segoe UI Emoji', 'Apple Color Emoji',
+                        'Noto Color Emoji', sans-serif;
+                    "
+                  >
+                    😆
+                  </text>
                 </g>
                 <defs>
                   <pattern
@@ -11383,8 +11593,173 @@
           ></div>
         </section>
 
+        <section class="slide s58" data-slide="58">
+          <div
+            class="slide-container flex flex-col items-center justify-center h-full w-full relative overflow-hidden"
+            style="
+              background: radial-gradient(
+                circle at center,
+                #fff 30%,
+                #fdf2f8 70%,
+                #fce7f3 100%
+              ) !important;
+              background-size: 200% 200% !important;
+              animation: gradient-shift-v2 15s ease infinite !important;
+            "
+          >
+            <!-- Background Decorative Elements -->
+            <div
+              class="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full opacity-40 blur-3xl mix-blend-multiply"
+              style="
+                background: radial-gradient(
+                  circle,
+                  #fcd34d 0%,
+                  transparent 70%
+                );
+                animation: float-1-v2 12s infinite ease-in-out;
+              "
+            ></div>
+            <div
+              class="absolute bottom-[-10%] right-[-10%] w-[55%] h-[55%] rounded-full opacity-40 blur-3xl mix-blend-multiply"
+              style="
+                background: radial-gradient(
+                  circle,
+                  #f9a8d4 0%,
+                  transparent 70%
+                );
+                animation: float-2-v2 18s infinite ease-in-out reverse;
+              "
+            ></div>
+            <div
+              class="absolute top-[20%] right-[10%] w-[35%] h-[35%] rounded-full opacity-30 blur-3xl mix-blend-multiply"
+              style="
+                background: radial-gradient(
+                  circle,
+                  #bae6fd 0%,
+                  transparent 70%
+                );
+                animation: float-3-v2 15s infinite ease-in-out 2s;
+              "
+            ></div>
+            <div
+              class="absolute bottom-[10%] left-[20%] w-[40%] h-[40%] rounded-full opacity-30 blur-3xl mix-blend-multiply"
+              style="
+                background: radial-gradient(
+                  circle,
+                  #ddd6fe 0%,
+                  transparent 70%
+                );
+                animation: float-4-v2 20s infinite ease-in-out 1s;
+              "
+            ></div>
+
+            <!-- Content -->
+            <div
+              class="z-10 text-center flex flex-col items-center gap-8 mix-blend-overlay-off"
+            >
+              <p
+                class="text-3xl font-serif text-gray-600 tracking-widest opacity-0"
+                style="animation: fadeInUp-v2 1s ease-out forwards 0.3s"
+              >
+                一般財団法人全国福利厚生共済会
+              </p>
+
+              <h1
+                class="text-7xl font-bold tracking-wide opacity-0"
+                style="
+                  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+                  background: linear-gradient(135deg, #db2777 0%, #f59e0b 100%);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  filter: drop-shadow(0 4px 6px rgba(219, 39, 119, 0.2));
+                  animation: fadeInUp-v2 1s ease-out forwards 0.8s,
+                    pulse-glow-v2 3s infinite ease-in-out 1.8s;
+                "
+              >
+                ありがとうございました
+              </h1>
+            </div>
+
+            <style>
+              @keyframes fadeInUp-v2 {
+                from {
+                  opacity: 0;
+                  transform: translateY(20px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+              @keyframes gradient-shift-v2 {
+                0% {
+                  background-position: 0% 50%;
+                }
+                50% {
+                  background-position: 100% 50%;
+                }
+                100% {
+                  background-position: 0% 50%;
+                }
+              }
+              @keyframes float-1-v2 {
+                0%,
+                100% {
+                  transform: translate(0, 0) scale(1);
+                }
+                33% {
+                  transform: translate(30px, -50px) scale(1.1);
+                }
+                66% {
+                  transform: translate(-20px, 20px) scale(0.9);
+                }
+              }
+              @keyframes float-2-v2 {
+                0%,
+                100% {
+                  transform: translate(0, 0) scale(1);
+                }
+                33% {
+                  transform: translate(-30px, 40px) scale(1.1);
+                }
+                66% {
+                  transform: translate(20px, -30px) scale(0.95);
+                }
+              }
+              @keyframes float-3-v2 {
+                0%,
+                100% {
+                  transform: translate(0, 0) scale(1);
+                }
+                50% {
+                  transform: translate(-40px, 40px) scale(1.1);
+                }
+              }
+              @keyframes float-4-v2 {
+                0%,
+                100% {
+                  transform: translate(0, 0) rotate(0deg);
+                }
+                50% {
+                  transform: translate(40px, -40px) rotate(10deg);
+                }
+              }
+              @keyframes pulse-glow-v2 {
+                0%,
+                100% {
+                  filter: drop-shadow(0 4px 6px rgba(219, 39, 119, 0.2));
+                }
+                50% {
+                  filter: drop-shadow(0 4px 15px rgba(219, 39, 119, 0.4));
+                }
+              }
+            </style>
+          </div>
+        </section>
+
         <!-- SLIDE 35 -->
-        <section class="slide s35" data-slide="58">
+        <section class="slide s35" data-slide="59">
           <div
             class="slide-container px-24 py-12 flex flex-col h-full justify-between"
             style="padding: 1rem"

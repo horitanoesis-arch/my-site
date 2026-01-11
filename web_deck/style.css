@@ -5833,3 +5833,19 @@ img {
 .animate-fall-3 {
   animation: fall-sway-3 22s linear infinite;
 }
+
+/* =========================================
+   Responsive Safeguard (iPad / Mobile)
+   ========================================= */
+@media screen and (max-width: 1280px), screen and (max-height: 720px) {
+  #slides-wrapper {
+    /* Scale logic to ensure layout never collapses on smaller screens */
+    width: 1280px !important;
+    height: 720px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%)
+      scale(min(calc(100vw / 1280), calc(100vh / 720))) !important;
+    transform-origin: center center !important;
+  }
+}
