@@ -10287,6 +10287,7 @@
             <img
               src="assets/3Register.png"
               class="w-full h-full object-contain"
+              loading="lazy"
               alt="3 Register"
             />
           </div>
@@ -10300,6 +10301,7 @@
             <img
               src="assets/Reversal.png"
               class="w-full h-full object-contain"
+              loading="lazy"
               alt="Reversal"
             />
           </div>
@@ -10313,6 +10315,7 @@
             <img
               src="./assets/slide44-1.png"
               class="absolute inset-0 w-full h-full object-contain z-10"
+              loading="lazy"
               alt="Slide 44 Step 1"
             />
 
@@ -10321,6 +10324,7 @@
               <img
                 src="./assets/slide44-2.png"
                 class="w-full h-full object-contain"
+                loading="lazy"
                 alt="Slide 44 Step 2"
               />
             </div>
@@ -10330,6 +10334,7 @@
               <img
                 src="./assets/slide44-3.png"
                 class="w-full h-full object-contain"
+                loading="lazy"
                 alt="Slide 44 Step 3"
               />
             </div>
@@ -10343,6 +10348,7 @@
             <img
               src="./assets/slide45.png"
               class="w-full h-full object-contain"
+              loading="lazy"
               alt="Slide 45"
             />
           </div>
@@ -10381,12 +10387,12 @@
               <!-- Vertical Images Container (Safe Height: 50%) -->
               <div
                 class="flex justify-center items-center gap-8 w-full max-w-[95%] h-[50%] my-2"
-                style="width: 50%;"
+                style="width: 50%"
               >
                 <!-- Image 1 -->
                 <div
                   class="h-full w-[45%] relative transform hover:scale-105 transition-transform duration-500 anim-pop delay-500 origin-center group"
-                  style="width: 45%;"
+                  style="width: 45%"
                 >
                   <div
                     class="h-full w-full rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(59,130,246,0.2)] border border-blue-200 bg-white relative"
@@ -10395,6 +10401,7 @@
                       src="assets/image1.png"
                       class="w-full h-full object-cover"
                       style="object-fit: cover; width: 100%; height: 100%"
+                      loading="lazy"
                       alt="Concept Image 1"
                     />
                   </div>
@@ -10403,7 +10410,7 @@
                 <!-- Image 2 -->
                 <div
                   class="h-full w-[45%] relative transform hover:scale-105 transition-transform duration-500 anim-pop delay-700 origin-center group"
-                  style="width: 45%;"
+                  style="width: 45%"
                 >
                   <div
                     class="h-full w-full rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(236,72,153,0.2)] border border-pink-200 bg-white relative"
@@ -10412,6 +10419,7 @@
                       src="assets/image2.png"
                       class="w-full h-full object-cover"
                       style="object-fit: cover; width: 100%; height: 100%"
+                      loading="lazy"
                       alt="Concept Image 2"
                     />
                   </div>
@@ -10563,10 +10571,14 @@
                 const particles = new THREE.Points(geometry, material);
                 scene.add(particles);
 
-                // --- Animation Loop ---
+                // --- Animation Loop with IntersectionObserver ---
                 let time = 0;
+                let animationId;
+                let isAnimating = false;
+
                 const animate = () => {
-                  requestAnimationFrame(animate);
+                  if (!isAnimating) return;
+                  animationId = requestAnimationFrame(animate);
                   time += 0.015;
 
                   const pos = geometry.attributes.position.array;
@@ -10589,6 +10601,25 @@
 
                   renderer.render(scene, camera);
                 };
+
+                const observer = new IntersectionObserver(
+                  (entries) => {
+                    entries.forEach((entry) => {
+                      if (entry.isIntersecting) {
+                        if (!isAnimating) {
+                          isAnimating = true;
+                          animate();
+                        }
+                      } else {
+                        isAnimating = false;
+                        if (animationId) cancelAnimationFrame(animationId);
+                      }
+                    });
+                  },
+                  { threshold: 0.1 }
+                );
+
+                observer.observe(container);
 
                 // Robust Resize Handler
                 const onResize = () => {
@@ -11226,6 +11257,7 @@
               <img
                 src="./assets/clover.png"
                 class="absolute animate-fall-1"
+                loading="lazy"
                 style="
                   left: 10%;
                   top: -100px;
@@ -11237,6 +11269,7 @@
               <img
                 src="./assets/clover.png"
                 class="absolute animate-fall-2"
+                loading="lazy"
                 style="
                   left: 25%;
                   top: -150px;
@@ -11249,6 +11282,7 @@
               <img
                 src="./assets/clover.png"
                 class="absolute animate-fall-3"
+                loading="lazy"
                 style="
                   left: 40%;
                   top: -80px;
